@@ -1,0 +1,1339 @@
+/* ============================================
+   SECURENCE — Smart SOS Decision System
+   AI-Powered Emergency Detection UI
+   High Fidelity CSS
+   ============================================ */
+
+/* ──────────── App Layout ──────────── */
+.sos-app {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    overflow: hidden;
+    font-family: var(--font-display);
+}
+
+/* ──────────────────────────────────────── */
+/* TOP COMMAND BAR                          */
+/* ──────────────────────────────────────── */
+.sos-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(8, 8, 24, 0.95);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 100;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.sos-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.sos-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.sos-back-btn:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: var(--neon-purple);
+    color: var(--text-primary);
+}
+
+.sos-topbar-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.sos-topbar-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sos-topbar-subtitle {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+}
+
+.sos-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ── AI Indicator ── */
+.sos-ai-indicator {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 12px;
+    background: rgba(168, 85, 247, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.18);
+    border-radius: 6px;
+}
+
+.sos-ai-brain {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sos-ai-brain-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neon-purple);
+    animation: sosBrainPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes sosBrainPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.7); opacity: 0.4; }
+}
+
+.sos-ai-label {
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--neon-purple);
+    transition: color 0.4s ease;
+}
+
+.sos-ai-indicator.analyzing {
+    border-color: rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.06);
+}
+
+.sos-ai-indicator.analyzing .sos-ai-brain-pulse {
+    background: #fbbf24;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+    animation: sosBrainFast 0.6s ease-in-out infinite;
+}
+
+.sos-ai-indicator.analyzing .sos-ai-label {
+    color: #fbbf24;
+}
+
+.sos-ai-indicator.alert {
+    border-color: rgba(255, 59, 59, 0.3);
+    background: rgba(255, 59, 59, 0.06);
+}
+
+.sos-ai-indicator.alert .sos-ai-brain-pulse {
+    background: var(--alert);
+    box-shadow: 0 0 12px rgba(255, 59, 59, 0.6);
+    animation: sosBrainFast 0.3s ease-in-out infinite;
+}
+
+.sos-ai-indicator.alert .sos-ai-label {
+    color: var(--alert);
+}
+
+@keyframes sosBrainFast {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.3; }
+}
+
+/* ── Status Badge ── */
+.sos-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--neon-green);
+    transition: all 0.5s ease;
+}
+
+.sos-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    animation: sosBadgePulse 2s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+
+@keyframes sosBadgePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+.sos-status-badge.analyzing {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: rgba(251, 191, 36, 0.25);
+    color: #fbbf24;
+}
+
+.sos-status-badge.analyzing .sos-badge-dot {
+    background: #fbbf24;
+    animation: sosBadgeAlert 0.8s ease-in-out infinite;
+}
+
+.sos-status-badge.alert {
+    background: rgba(255, 59, 59, 0.1);
+    border-color: rgba(255, 59, 59, 0.3);
+    color: var(--alert);
+}
+
+.sos-status-badge.alert .sos-badge-dot {
+    background: var(--alert);
+    animation: sosBadgeAlert 0.4s ease-in-out infinite;
+}
+
+.sos-status-badge.emergency {
+    background: rgba(255, 59, 59, 0.15);
+    border-color: rgba(255, 59, 59, 0.4);
+    color: var(--alert);
+    animation: sosEmergencyBadge 0.8s ease-in-out infinite;
+}
+
+.sos-status-badge.emergency .sos-badge-dot {
+    background: var(--alert);
+    animation: sosBadgeAlert 0.3s ease-in-out infinite;
+}
+
+@keyframes sosBadgeAlert {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(1.5); }
+}
+
+@keyframes sosEmergencyBadge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); }
+    50% { box-shadow: 0 0 20px 2px rgba(255, 59, 59, 0.2); }
+}
+
+.sos-status-badge.resolved {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: var(--neon-green);
+}
+
+.sos-status-badge.resolved .sos-badge-dot {
+    background: var(--neon-green);
+    animation: sosBadgePulse 2s ease-in-out infinite;
+}
+
+/* ──────────────────────────────────────── */
+/* MAIN SCENE AREA                          */
+/* ──────────────────────────────────────── */
+.sos-scene {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sos-scene-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Grid Background ── */
+.sos-grid-map {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.sos-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(168, 85, 247, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(59, 130, 246, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.012) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+    animation: sosGridScroll 40s linear infinite;
+}
+
+@keyframes sosGridScroll {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-80px, -80px); }
+}
+
+/* ── Detection Grid Overlay ── */
+.sos-detection-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.sos-detection-grid.active {
+    opacity: 1;
+}
+
+.sos-detection-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(168, 85, 247, 0.06) 39px,
+            rgba(168, 85, 247, 0.06) 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(168, 85, 247, 0.06) 39px,
+            rgba(168, 85, 247, 0.06) 40px
+        );
+}
+
+.sos-detection-grid.alert::before {
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(255, 59, 59, 0.06) 39px,
+            rgba(255, 59, 59, 0.06) 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(255, 59, 59, 0.06) 39px,
+            rgba(255, 59, 59, 0.06) 40px
+        );
+}
+
+/* ── Scan Line Effect ── */
+.sos-scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(168, 85, 247, 0.1) 20%,
+        rgba(168, 85, 247, 0.5) 40%,
+        var(--neon-purple) 50%,
+        rgba(168, 85, 247, 0.5) 60%,
+        rgba(168, 85, 247, 0.1) 80%,
+        transparent 100%
+    );
+    z-index: 8;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 4px 40px rgba(168, 85, 247, 0.1);
+}
+
+.sos-scanline.active {
+    opacity: 1;
+    animation: sosScanSweep 3s ease-in-out infinite;
+}
+
+.sos-scanline.alert {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 59, 59, 0.1) 20%,
+        rgba(255, 59, 59, 0.5) 40%,
+        var(--alert) 50%,
+        rgba(255, 59, 59, 0.5) 60%,
+        rgba(255, 59, 59, 0.1) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.3), 0 4px 40px rgba(255, 59, 59, 0.1);
+    animation: sosScanSweepFast 1.5s ease-in-out infinite;
+}
+
+@keyframes sosScanSweep {
+    0% { top: 0%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes sosScanSweepFast {
+    0% { top: 0%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ── Ambient Glow ── */
+.sos-ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.03), transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+    transition: all 1.2s ease;
+}
+
+.sos-ambient-glow.analyzing {
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.04), transparent 70%);
+    width: 500px;
+    height: 500px;
+}
+
+.sos-ambient-glow.alert {
+    background: radial-gradient(circle, rgba(255, 59, 59, 0.06), transparent 70%);
+    width: 600px;
+    height: 600px;
+}
+
+/* ── Motion Trail Canvas ── */
+.sos-trail-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* ── Path Nodes ── */
+.sos-path-nodes {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.sos-path-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.sos-path-node.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sos-path-node.alert-node {
+    background: rgba(255, 59, 59, 0.5);
+    box-shadow: 0 0 8px rgba(255, 59, 59, 0.4);
+    width: 8px;
+    height: 8px;
+}
+
+.sos-path-node-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    animation: sosNodeRing 2s ease-out infinite;
+}
+
+@keyframes sosNodeRing {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* ──────────────────────────────────────── */
+/* USER FIGURE                              */
+/* ──────────────────────────────────────── */
+.sos-figure {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                top 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: left, top;
+}
+
+.sos-figure-body {
+    width: 22px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sos-figure-head {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.sos-figure-neck {
+    width: 4px;
+    height: 3px;
+    background: #94a3b8;
+    z-index: 1;
+}
+
+.sos-figure-torso {
+    width: 16px;
+    height: 18px;
+    background: linear-gradient(to bottom, #3b82f6, #2563eb);
+    border-radius: 3px 3px 2px 2px;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+    z-index: 1;
+}
+
+.sos-figure-arms {
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sos-figure-arm {
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(to bottom, #3b82f6, #2563eb);
+    border-radius: 2px;
+    transform-origin: top center;
+}
+
+.sos-figure-legs {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+}
+
+.sos-figure-leg {
+    width: 5px;
+    height: 16px;
+    background: linear-gradient(to bottom, #64748b, #475569);
+    border-radius: 0 0 2px 2px;
+    transform-origin: top center;
+}
+
+/* Walking Animation */
+.sos-figure.walking .sos-leg-left {
+    animation: sosLegL 0.5s ease-in-out infinite;
+}
+.sos-figure.walking .sos-leg-right {
+    animation: sosLegR 0.5s ease-in-out infinite;
+}
+.sos-figure.walking .sos-arm-left {
+    animation: sosArmL 0.5s ease-in-out infinite;
+}
+.sos-figure.walking .sos-arm-right {
+    animation: sosArmR 0.5s ease-in-out infinite;
+}
+.sos-figure.walking .sos-figure-body {
+    animation: sosBodyBob 0.25s ease-in-out infinite;
+}
+
+@keyframes sosLegL {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(18deg); }
+}
+@keyframes sosLegR {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-18deg); }
+}
+@keyframes sosArmL {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg); }
+}
+@keyframes sosArmR {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}
+@keyframes sosBodyBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-1.5px); }
+}
+
+/* Slow / Erratic walking */
+.sos-figure.slow-walk .sos-leg-left {
+    animation: sosLegL 1s ease-in-out infinite;
+}
+.sos-figure.slow-walk .sos-leg-right {
+    animation: sosLegR 1s ease-in-out infinite;
+}
+.sos-figure.slow-walk .sos-arm-left {
+    animation: sosArmL 1s ease-in-out infinite;
+}
+.sos-figure.slow-walk .sos-arm-right {
+    animation: sosArmR 1s ease-in-out infinite;
+}
+.sos-figure.slow-walk .sos-figure-body {
+    animation: sosBodyBob 0.5s ease-in-out infinite;
+}
+
+/* Stopped — slight sway */
+.sos-figure.stopped .sos-figure-body {
+    animation: sosSway 3s ease-in-out infinite;
+}
+
+@keyframes sosSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+/* ── Figure Indicator ── */
+.sos-figure-indicator {
+    margin-top: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sos-figure-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    animation: sosDotPulse 2s ease-in-out infinite;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.sos-figure-ping {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    animation: sosPingExpand 2.5s ease-out infinite;
+    z-index: 1;
+}
+
+@keyframes sosDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes sosPingExpand {
+    0% { transform: scale(0.5); opacity: 0.8; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+.sos-figure-dot.analyzing {
+    background: #fbbf24;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+    animation: sosDotAnalyze 0.8s ease-in-out infinite;
+}
+.sos-figure-ping.analyzing {
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.sos-figure-dot.alert {
+    background: var(--alert);
+    box-shadow: 0 0 16px rgba(255, 59, 59, 0.6);
+    animation: sosDotEmergency 0.35s ease-in-out infinite;
+}
+.sos-figure-ping.alert {
+    border-color: rgba(255, 59, 59, 0.4);
+    animation: sosPingExpand 0.8s ease-out infinite;
+}
+
+@keyframes sosDotAnalyze {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.2); }
+}
+
+@keyframes sosDotEmergency {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(1.4); }
+}
+
+.sos-figure-tag {
+    font-size: 0.45rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ── Alert Glow Ring ── */
+.sos-alert-glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.6s ease;
+}
+
+.sos-alert-glow-ring.active {
+    width: 80px;
+    height: 80px;
+    border-color: rgba(255, 59, 59, 0.3);
+    box-shadow: 0 0 30px rgba(255, 59, 59, 0.1);
+    animation: sosAlertRing 1.5s ease-in-out infinite;
+}
+
+@keyframes sosAlertRing {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; border-color: rgba(255, 59, 59, 0.3); }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; border-color: rgba(255, 59, 59, 0.5); }
+}
+
+/* ──────────────────────────────────────── */
+/* THREAT ZONE                              */
+/* ──────────────────────────────────────── */
+.sos-threat-zone {
+    position: absolute;
+    z-index: 4;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.sos-threat-zone.visible {
+    opacity: 1;
+}
+
+.sos-threat-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 59, 59, 0.05);
+    border: 1px solid rgba(255, 59, 59, 0.2);
+    animation: sosThreatPulse 2s ease-out infinite;
+}
+
+.sos-threat-pulse-2 {
+    animation-delay: 1s;
+}
+
+@keyframes sosThreatPulse {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ──────────────────────────────────────── */
+/* LOCATION PIN                             */
+/* ──────────────────────────────────────── */
+.sos-pin {
+    position: absolute;
+    z-index: 22;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.sos-pin.visible {
+    opacity: 1;
+    animation: sosPinDrop 0.6s var(--ease-out-expo);
+}
+
+@keyframes sosPinDrop {
+    0% { transform: translateY(-30px) scale(0.3); opacity: 0; }
+    60% { transform: translateY(3px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.sos-pin svg {
+    width: 26px;
+    height: 26px;
+    color: var(--alert);
+    filter: drop-shadow(0 0 8px rgba(255, 59, 59, 0.5));
+}
+
+.sos-pin-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 59, 59, 0.25);
+    animation: sosPinRing 1.8s ease-out infinite;
+}
+
+.sos-pin-ring-2 {
+    animation-delay: 0.9s;
+}
+
+@keyframes sosPinRing {
+    0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+}
+
+/* ──────────────────────────────────────── */
+/* ALERT FLASH                              */
+/* ──────────────────────────────────────── */
+.sos-alert-flash {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sos-alert-flash.active {
+    animation: sosAlertFlash 0.5s ease-out;
+}
+
+@keyframes sosAlertFlash {
+    0% { opacity: 0.9; background: rgba(255, 59, 59, 0.12); }
+    100% { opacity: 0; background: rgba(255, 59, 59, 0); }
+}
+
+/* ──────────────────────────────────────── */
+/* POPUP NOTIFICATIONS                      */
+/* ──────────────────────────────────────── */
+.sos-popup-container {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    width: 100%;
+}
+
+.sos-popup {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: rgba(10, 10, 30, 0.95);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    margin-top: 6px;
+}
+
+.sos-popup.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.sos-popup.exiting {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+}
+
+.sos-popup.success {
+    border-color: rgba(0, 255, 136, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 255, 136, 0.06);
+    color: var(--safe);
+}
+
+.sos-popup.warning {
+    border-color: rgba(251, 191, 36, 0.25);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(251, 191, 36, 0.08);
+    color: #fbbf24;
+}
+
+.sos-popup.danger {
+    border-color: rgba(255, 59, 59, 0.3);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 59, 59, 0.12);
+    color: #ff8a8a;
+}
+
+.sos-popup.info {
+    border-color: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.06);
+}
+
+/* ──────────────────────────────────────── */
+/* TELEMETRY PANELS                         */
+/* ──────────────────────────────────────── */
+.sos-telemetry {
+    position: absolute;
+    top: 12px;
+    width: 170px;
+    padding: 12px;
+    background: rgba(8, 8, 24, 0.88);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 30;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sos-telemetry.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sos-telemetry-left { left: 12px; }
+.sos-telemetry-right { right: 12px; }
+
+.sos-telem-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-purple);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.sos-telem-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+}
+
+.sos-telem-label {
+    font-size: 0.45rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.sos-telem-value {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    transition: color 0.4s ease;
+}
+
+.sos-telem-divider {
+    height: 1px;
+    background: rgba(168, 85, 247, 0.08);
+    margin: 6px 0;
+}
+
+.sos-pattern-indicator {
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.45rem !important;
+    transition: all 0.4s ease;
+}
+
+.sos-pattern-indicator.normal { color: var(--safe); background: rgba(0, 255, 136, 0.08); }
+.sos-pattern-indicator.irregular { color: #fbbf24; background: rgba(251, 191, 36, 0.08); }
+.sos-pattern-indicator.stopped { color: #f97316; background: rgba(249, 115, 22, 0.08); }
+.sos-pattern-indicator.danger { color: var(--alert); background: rgba(255, 59, 59, 0.08); }
+
+.sos-risk-value {
+    transition: color 0.4s ease;
+}
+
+.sos-risk-value.low { color: var(--safe); }
+.sos-risk-value.medium { color: #fbbf24; }
+.sos-risk-value.high { color: #f97316; }
+.sos-risk-value.critical { color: var(--alert); }
+
+.sos-telem-progress {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.sos-telem-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--safe);
+    border-radius: 2px;
+    transition: width 0.5s ease, background 0.5s ease;
+}
+
+/* ── Heartbeat Chart ── */
+.sos-heartbeat-chart {
+    margin-top: 8px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(168, 85, 247, 0.08);
+}
+
+.sos-heartbeat-chart canvas {
+    width: 100%;
+    height: 40px;
+    display: block;
+}
+
+/* ──────────────────────────────────────── */
+/* BOTTOM CONTROL PANEL                     */
+/* ──────────────────────────────────────── */
+.sos-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(8, 8, 24, 0.95);
+    border-top: 1px solid rgba(168, 85, 247, 0.15);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 100;
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.sos-bottom-left,
+.sos-bottom-right {
+    flex: 1;
+    min-width: 0;
+}
+
+.sos-bottom-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Timeline Indicator */
+.sos-timeline-indicator {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sos-timeline-track {
+    width: 120px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.sos-timeline-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.sos-timeline-label {
+    font-size: 0.45rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.4s ease;
+}
+
+/* Buttons */
+.sos-start-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 32px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sos-start-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.4);
+}
+
+.sos-start-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 12px rgba(168, 85, 247, 0.3);
+}
+
+.sos-start-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.sos-start-btn.running {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(59, 130, 246, 0.15));
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+}
+
+.sos-start-btn.running:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25));
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+/* Emergency Indicator */
+.sos-emergency-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    justify-content: flex-end;
+    transition: color 0.5s ease;
+}
+
+.sos-emergency-indicator.active {
+    color: var(--alert);
+}
+
+.sos-emergency-icon {
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.sos-emergency-indicator.active .sos-emergency-icon {
+    animation: sosEmergencyIcon 0.5s ease-in-out infinite;
+    color: var(--alert);
+}
+
+@keyframes sosEmergencyIcon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* ──────────────────────────────────────── */
+/* SCREEN SHAKE                             */
+/* ──────────────────────────────────────── */
+.sos-screen-shake {
+    animation: sosShake 0.4s ease-in-out;
+}
+
+@keyframes sosShake {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-4px, -2px); }
+    20% { transform: translate(4px, 2px); }
+    30% { transform: translate(-3px, 1px); }
+    40% { transform: translate(3px, -1px); }
+    50% { transform: translate(-2px, 2px); }
+    60% { transform: translate(2px, -2px); }
+    70% { transform: translate(-1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    90% { transform: translate(-1px, 0); }
+}
+
+/* ──────────────────────────────────────── */
+/* VIGNETTE OVERLAY                         */
+/* ──────────────────────────────────────── */
+.sos-scene.alert-vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(255, 59, 59, 0.08) 100%);
+    pointer-events: none;
+    z-index: 45;
+    animation: sosVignetteFlash 1.5s ease-in-out infinite;
+}
+
+@keyframes sosVignetteFlash {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ──────────────────────────────────────── */
+/* RESPONSIVE DESIGN                        */
+/* ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .sos-telemetry {
+        width: 150px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sos-topbar {
+        padding: 8px 12px;
+    }
+
+    .sos-topbar-title {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+
+
+    .sos-telemetry {
+        width: 130px;
+        padding: 8px;
+        top: 8px;
+    }
+
+    .sos-telemetry-left { left: 6px; }
+    .sos-telemetry-right { right: 6px; }
+
+    .sos-telem-header {
+        font-size: 0.4rem;
+        margin-bottom: 6px;
+    }
+
+    .sos-telem-label { font-size: 0.38rem; }
+    .sos-telem-value { font-size: 0.48rem; }
+
+    .sos-heartbeat-chart {
+        display: none;
+    }
+
+    .sos-bottom {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sos-bottom-left,
+    .sos-bottom-right {
+        display: none;
+    }
+
+    .sos-popup {
+        font-size: 0.72rem;
+        padding: 10px 18px;
+        max-width: 85vw;
+    }
+
+    .sos-popup-container {
+        bottom: 40px;
+        width: 92%;
+    }
+
+    .sos-figure-body {
+        width: 18px;
+        height: 42px;
+    }
+    .sos-figure-head { width: 13px; height: 13px; }
+    .sos-figure-torso { width: 13px; height: 15px; }
+    .sos-figure-leg { width: 4px; height: 13px; }
+    .sos-figure-arm { width: 3px; height: 13px; }
+    .sos-figure-arms { width: 24px; top: 17px; }
+}
+
+@media (max-width: 480px) {
+    .sos-topbar-title {
+        font-size: 0.58rem;
+    }
+
+    .sos-topbar-subtitle {
+        display: none;
+    }
+
+    .sos-status-badge {
+        font-size: 0.5rem;
+        padding: 3px 8px;
+    }
+
+    .sos-telemetry {
+        width: 110px;
+        padding: 6px;
+    }
+
+    .sos-start-btn {
+        padding: 10px 24px;
+        font-size: 0.75rem;
+    }
+
+    .sos-popup {
+        font-size: 0.65rem;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .sos-telemetry {
+        display: none;
+    }
+}

@@ -1,0 +1,490 @@
+/* ============================================
+   SECURENCE VISUALIZATION — Global Design System
+   Matches main website design language exactly
+   ============================================ */
+
+/* ──────────── Google Fonts (same as main site) ──────────── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ──────────── CSS Variables ──────────── */
+:root {
+    /* Core palette from spec */
+    --bg: #0b0f1a;
+    --accent: #00f0ff;
+    --safe: #00ff88;
+    --alert: #ff3b3b;
+    --text: #e6e6e6;
+    --transition: 0.4s ease;
+
+    /* Extended palette matching main website */
+    --bg-primary: #050510;
+    --bg-secondary: #0a0a1a;
+    --bg-card: rgba(15, 15, 35, 0.6);
+    --bg-glass: rgba(255, 255, 255, 0.03);
+
+    /* Neon Accent Colors */
+    --neon-purple: #a855f7;
+    --neon-blue: #3b82f6;
+    --neon-pink: #ec4899;
+    --neon-cyan: #06b6d4;
+    --neon-green: #10b981;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899);
+    --gradient-accent: linear-gradient(135deg, #7c3aed, #2563eb);
+    --gradient-glow: linear-gradient(135deg, rgba(168,85,247,0.3), rgba(59,130,246,0.3), rgba(236,72,153,0.3));
+    --gradient-card: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.05));
+    --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+    --gradient-safe: linear-gradient(135deg, #10b981, #06b6d4);
+
+    /* Text Colors */
+    --text-primary: #f1f5f9;
+    --text-secondary: rgba(241, 245, 249, 0.6);
+    --text-muted: rgba(241, 245, 249, 0.35);
+
+    /* Borders */
+    --border-subtle: rgba(168, 85, 247, 0.12);
+    --border-glow: rgba(168, 85, 247, 0.3);
+
+    /* Typography */
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --section-padding: 120px;
+    --container-max: 1200px;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ──────────── Reset & Base ──────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Scrollbar matching main site */
+body::-webkit-scrollbar {
+    width: 6px;
+}
+body::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+body::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.3);
+    border-radius: 3px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ──────────── Preloader ──────────── */
+#viz-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#viz-preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.viz-loader-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.viz-loader-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--neon-purple);
+    border-right-color: var(--neon-blue);
+    animation: vizLoaderSpin 1s linear infinite;
+}
+
+.viz-loader-ring-inner {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: var(--neon-pink);
+    border-left-color: var(--neon-cyan);
+    animation: vizLoaderSpin 0.6s linear infinite reverse;
+}
+
+@keyframes vizLoaderSpin {
+    to { transform: rotate(360deg); }
+}
+
+.viz-loader-text {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.viz-loader-progress {
+    width: 200px;
+    height: 2px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.viz-loader-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* ──────────── Navigation ──────────── */
+.viz-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.4s var(--ease-out-expo);
+    max-width: 100%;
+    background: rgba(5, 5, 16, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.viz-nav-container {
+    max-width: var(--container-max);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.viz-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.viz-logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(168,85,247,0.5));
+}
+
+.viz-logo-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.viz-nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid var(--border-glow);
+    background: transparent;
+    color: var(--neon-purple);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.viz-nav-back:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+/* ──────────── Utility Classes ──────────── */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-purple);
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+/* ──────────── Buttons (matching main site exactly) ──────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 30px rgba(168, 85, 247, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(168, 85, 247, 0.5);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-glow);
+}
+
+.btn-outline:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: var(--neon-purple);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 18px 40px;
+    font-size: 1rem;
+}
+
+/* ──────────── Animation Keyframes ──────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ──────────── Responsive Base ──────────── */
+@media (max-width: 768px) {
+    .viz-nav-container {
+        padding: 0 20px;
+    }
+
+    .viz-nav-logo .logo-text-full {
+        display: none;
+    }
+}
+
+/* Page title in nav — always visible */
+.viz-page-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+}
+
+@media (max-width: 480px) {
+    .viz-page-title {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .viz-nav {
+        padding: 14px 0;
+    }
+
+    .viz-nav-container {
+        padding: 0 12px;
+    }
+
+    .viz-nav-back {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        gap: 4px;
+    }
+
+    .viz-nav-back svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .btn-lg {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .viz-page-title {
+        font-size: 0.75rem;
+    }
+
+    .viz-logo-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
+
+/* ──────────── Visualization Footer (Minimal) ──────────── */
+.viz-page-footer {
+    padding: 16px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+    position: relative;
+    flex-shrink: 0;
+    z-index: 100;
+    background: var(--bg-primary);
+}
+
+.viz-page-footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: var(--gradient-primary);
+    filter: blur(2px);
+    opacity: 0.4;
+}
+
+.viz-page-footer p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.viz-page-footer a {
+    color: var(--neon-purple);
+    transition: color 0.3s ease;
+}
+
+.viz-page-footer a:hover {
+    color: var(--text-primary);
+}

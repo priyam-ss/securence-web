@@ -1,0 +1,424 @@
+/* ============================================
+   SECURENCE VISUALIZATION — Hub Page Styles
+   ============================================ */
+
+/* ──────────── Hero Section ──────────── */
+.viz-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 160px 40px 80px;
+    overflow: hidden;
+}
+
+.viz-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.viz-hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+}
+
+.viz-hero-glow-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(168, 85, 247, 0.15);
+    top: -100px;
+    right: -100px;
+    animation: hubGlowFloat1 8s ease-in-out infinite;
+}
+
+.viz-hero-glow-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(59, 130, 246, 0.12);
+    bottom: -50px;
+    left: -100px;
+    animation: hubGlowFloat2 10s ease-in-out infinite;
+}
+
+.viz-hero-glow-3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(236, 72, 153, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: hubGlowFloat3 12s ease-in-out infinite;
+}
+
+@keyframes hubGlowFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 30px) scale(1.1); }
+}
+
+@keyframes hubGlowFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.15); }
+}
+
+@keyframes hubGlowFloat3 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.15; }
+}
+
+/* Grid lines background (matches Future section) */
+.viz-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(168,85,247,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: hubGridMove 20s linear infinite;
+}
+
+@keyframes hubGridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+.viz-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.viz-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--neon-purple);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s forwards;
+}
+
+.viz-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    animation: hubDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes hubDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.viz-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 0.4s forwards;
+}
+
+.viz-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 0.6s forwards;
+}
+
+/* ──────────── Card Grid ──────────── */
+.viz-cards-section {
+    position: relative;
+    padding: 0 40px 120px;
+    z-index: 1;
+}
+
+.viz-cards-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.viz-cards-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 0.8s forwards;
+}
+
+.viz-cards-header .section-desc {
+    margin: 0 auto;
+}
+
+.viz-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* ──────────── Visualization Card ──────────── */
+.viz-card {
+    position: relative;
+    padding: 40px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s var(--ease-out-expo);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+    cursor: pointer;
+}
+
+.viz-card:nth-child(1) { animation-delay: 0.9s; }
+.viz-card:nth-child(2) { animation-delay: 1.05s; }
+.viz-card:nth-child(3) { animation-delay: 1.2s; }
+.viz-card:nth-child(4) { animation-delay: 1.35s; }
+
+.viz-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.15);
+}
+
+.viz-card-glow {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(168,85,247,0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.viz-card:hover .viz-card-glow {
+    opacity: 1;
+}
+
+.viz-card-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 18px;
+    color: var(--neon-purple);
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.viz-card:hover .viz-card-icon {
+    background: rgba(168, 85, 247, 0.15);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.viz-card-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.viz-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.viz-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.viz-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+}
+
+.viz-card-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.viz-card-btn:hover::before {
+    opacity: 1;
+}
+
+.viz-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.4);
+}
+
+/* ──────────── Coming Soon Card ──────────── */
+.viz-card.coming-soon {
+    opacity: 0;
+    cursor: default;
+}
+
+.viz-card.coming-soon:hover {
+    transform: none;
+    border-color: var(--border-subtle);
+    box-shadow: none;
+}
+
+.viz-card.coming-soon .viz-card-glow {
+    display: none;
+}
+
+.viz-card-coming-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 12px;
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    border-radius: 4px;
+}
+
+.viz-card.coming-soon .viz-card-icon {
+    opacity: 0.4;
+}
+
+.viz-card.coming-soon h3 {
+    opacity: 0.5;
+}
+
+.viz-card.coming-soon p {
+    opacity: 0.35;
+}
+
+.viz-card.coming-soon .viz-card-btn {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Active card animation pulse on the icon */
+.viz-card.active .viz-card-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 20px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    animation: hubIconRing 2s ease-in-out infinite;
+}
+
+@keyframes hubIconRing {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.08); opacity: 0; }
+}
+
+/* ──────────── Footer CTA ──────────── */
+.viz-footer-cta {
+    text-align: center;
+    padding: 0 40px 80px;
+    opacity: 0;
+    animation: fadeInUp 0.8s var(--ease-out-expo) 1.5s forwards;
+}
+
+.viz-footer-cta p {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.viz-footer-cta .sub-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ──────────── Responsive ──────────── */
+@media (max-width: 768px) {
+    .viz-hero {
+        padding: 140px 20px 60px;
+        min-height: 50vh;
+    }
+
+    .viz-cards-section {
+        padding: 0 20px 80px;
+    }
+
+    .viz-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .viz-footer-cta {
+        padding: 0 20px 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .viz-hero {
+        padding: 120px 16px 40px;
+    }
+
+    .viz-cards-section {
+        padding: 0 16px 60px;
+    }
+
+    .viz-card {
+        padding: 32px 24px;
+    }
+}

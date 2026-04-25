@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="SECURENCE Safe Zone Intelligent System — Advanced geofencing with real-time boundary detection, threshold zones, and emergency response.">
+    <title>SECURENCE — Safe Zone Intelligent System</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/safezone-advanced.css">
+    <link rel="stylesheet" href="css/floating-panels.css">
+    <link rel="stylesheet" href="css/disclaimer.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="viz-preloader">
+        <div class="viz-loader-ring"><div class="viz-loader-ring-inner"></div></div>
+        <p class="viz-loader-text">Initializing Geofence System</p>
+        <div class="viz-loader-progress"><div class="viz-loader-progress-bar" id="viz-loader-bar"></div></div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- MAIN APP CONTAINER -->
+    <!-- ============================== -->
+    <div class="sz-app" id="sz-app">
+
+        <!-- ============================== -->
+        <!-- NAVIGATION (matches hub/site) -->
+        <!-- ============================== -->
+        <nav class="viz-nav" id="viz-nav">
+            <div class="viz-nav-container">
+                <a href="index.html" class="viz-nav-back" id="viz-nav-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to Hub
+                </a>
+                <a href="../index.html" class="viz-nav-logo" id="viz-nav-logo">
+                    <span class="viz-logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                    <span class="viz-page-title">SAFE ZONE</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ============================== -->
+        <!-- MAIN SCENE AREA -->
+        <!-- ============================== -->
+        <div class="sz-scene" id="sz-scene">
+            <div class="sz-scene-inner" id="sz-scene-inner">
+
+                <!-- Grid Map Background -->
+                <div class="sz-grid-map" id="sz-grid-map">
+                    <div class="sz-grid-lines"></div>
+                    <div class="sz-grid-coords" id="sz-grid-coords"></div>
+                </div>
+
+                <!-- Moving Coordinate Lines -->
+                <div class="sz-crosshair" id="sz-crosshair">
+                    <div class="sz-crosshair-h"></div>
+                    <div class="sz-crosshair-v"></div>
+                </div>
+
+                <!-- Ambient Glow -->
+                <div class="sz-ambient-glow" id="sz-ambient-glow"></div>
+
+                <!-- ============================== -->
+                <!-- THRESHOLD ZONE RINGS -->
+                <!-- ============================== -->
+                <div class="sz-zone-container" id="sz-zone-container">
+                    <!-- Inner Safe Zone (Green) -->
+                    <div class="sz-zone sz-zone-inner" id="sz-zone-inner">
+                        <span class="sz-zone-label">INNER SAFE</span>
+                    </div>
+                    <!-- Warning Zone (Yellow) -->
+                    <div class="sz-zone sz-zone-warning" id="sz-zone-warning">
+                        <span class="sz-zone-label">WARNING</span>
+                    </div>
+                    <!-- Critical Edge (Orange) -->
+                    <div class="sz-zone sz-zone-critical" id="sz-zone-critical">
+                        <span class="sz-zone-label">CRITICAL</span>
+                    </div>
+                    <!-- Outer Boundary (Red) -->
+                    <div class="sz-zone sz-zone-boundary" id="sz-zone-boundary">
+                        <span class="sz-zone-label">BOUNDARY</span>
+                    </div>
+
+                    <!-- Center Marker -->
+                    <div class="sz-center-marker" id="sz-center-marker">
+                        <div class="sz-center-dot"></div>
+                        <div class="sz-center-ring"></div>
+                        <div class="sz-center-ring sz-center-ring-2"></div>
+                        <span class="sz-center-label">ORIGIN</span>
+                    </div>
+
+                    <!-- Pulse Wave Container -->
+                    <div class="sz-pulse-waves" id="sz-pulse-waves"></div>
+
+                    <!-- Scan Rotation -->
+                    <div class="sz-scan-sweep" id="sz-scan-sweep"></div>
+
+                    <!-- Radius Lines -->
+                    <div class="sz-radius-line sz-radius-line-0"></div>
+                    <div class="sz-radius-line sz-radius-line-45"></div>
+                    <div class="sz-radius-line sz-radius-line-90"></div>
+                    <div class="sz-radius-line sz-radius-line-135"></div>
+                </div>
+
+                <!-- ============================== -->
+                <!-- USER FIGURE -->
+                <!-- ============================== -->
+                <div class="sz-figure" id="sz-figure">
+                    <div class="sz-figure-body">
+                        <div class="sz-figure-head"></div>
+                        <div class="sz-figure-neck"></div>
+                        <div class="sz-figure-torso"></div>
+                        <div class="sz-figure-arms">
+                            <div class="sz-figure-arm sz-arm-left"></div>
+                            <div class="sz-figure-arm sz-arm-right"></div>
+                        </div>
+                        <div class="sz-figure-legs">
+                            <div class="sz-figure-leg sz-leg-left"></div>
+                            <div class="sz-figure-leg sz-leg-right"></div>
+                        </div>
+                    </div>
+                    <div class="sz-figure-indicator" id="sz-figure-indicator">
+                        <div class="sz-figure-dot" id="sz-figure-dot"></div>
+                        <div class="sz-figure-ping" id="sz-figure-ping"></div>
+                    </div>
+                    <span class="sz-figure-tag">USER</span>
+                    <!-- Distance Line -->
+                    <svg class="sz-distance-line" id="sz-distance-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(0,255,136,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+                    </svg>
+                </div>
+
+                <!-- ============================== -->
+                <!-- BREACH FLASH OVERLAY -->
+                <!-- ============================== -->
+                <div class="sz-breach-flash" id="sz-breach-flash"></div>
+
+                <!-- Signal Animation Waves -->
+                <div class="sz-signal-waves" id="sz-signal-waves">
+                    <div class="sz-signal-wave"></div>
+                    <div class="sz-signal-wave"></div>
+                    <div class="sz-signal-wave"></div>
+                </div>
+
+                <!-- ============================== -->
+                <!-- POPUP CONTAINER -->
+                <!-- ============================== -->
+                <div class="sz-popup-container" id="sz-popups"></div>
+
+            </div>
+
+            <!-- ============================== -->
+            <!-- LEFT TELEMETRY PANEL -->
+            <!-- ============================== -->
+            <div class="sz-telemetry sz-telemetry-left" id="sz-telemetry-left">
+                <div class="sz-telem-header">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    POSITION DATA
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">LATITUDE</span>
+                    <span class="sz-telem-value" id="sz-lat">28.6139°N</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">LONGITUDE</span>
+                    <span class="sz-telem-value" id="sz-lng">77.2090°E</span>
+                </div>
+                <div class="sz-telem-divider"></div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">DISTANCE</span>
+                    <span class="sz-telem-value sz-telem-highlight" id="sz-distance">0.0 m</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">RADIUS</span>
+                    <span class="sz-telem-value" id="sz-radius">150 m</span>
+                </div>
+                <div class="sz-telem-divider"></div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">ZONE</span>
+                    <span class="sz-telem-value sz-zone-indicator" id="sz-zone-status">INNER SAFE</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">BOUNDARY %</span>
+                    <span class="sz-telem-value" id="sz-boundary-pct">0%</span>
+                </div>
+                <div class="sz-telem-progress">
+                    <div class="sz-telem-progress-bar" id="sz-boundary-bar"></div>
+                </div>
+            </div>
+
+            <!-- ============================== -->
+            <!-- RIGHT TELEMETRY PANEL -->
+            <!-- ============================== -->
+            <div class="sz-telemetry sz-telemetry-right" id="sz-telemetry-right">
+                <div class="sz-telem-header">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    SYSTEM STATUS
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">SIGNAL</span>
+                    <span class="sz-telem-value" id="sz-signal-strength">98%</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">GPS ACC</span>
+                    <span class="sz-telem-value" id="sz-gps-accuracy">±1.2 m</span>
+                </div>
+                <div class="sz-telem-divider"></div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">VELOCITY</span>
+                    <span class="sz-telem-value" id="sz-velocity">0.0 km/h</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">HEADING</span>
+                    <span class="sz-telem-value" id="sz-heading">0° N</span>
+                </div>
+                <div class="sz-telem-divider"></div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">ALERT LVL</span>
+                    <span class="sz-telem-value" id="sz-alert-level">NONE</span>
+                </div>
+                <div class="sz-telem-row">
+                    <span class="sz-telem-label">RESPONSE</span>
+                    <span class="sz-telem-value" id="sz-response-status">STANDBY</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- BOTTOM CONTROL PANEL -->
+        <!-- ============================== -->
+        <div class="sz-bottom" id="sz-bottom">
+            <div class="sz-bottom-left">
+                <div class="sz-timeline-indicator" id="sz-timeline">
+                    <div class="sz-timeline-track">
+                        <div class="sz-timeline-fill" id="sz-timeline-fill"></div>
+                    </div>
+                    <span class="sz-timeline-label" id="sz-timeline-label">PHASE: IDLE</span>
+                </div>
+            </div>
+            <div class="sz-bottom-center">
+                <button class="sz-start-btn" id="btn-start">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
+                    Initialize Simulation
+                </button>
+            </div>
+            <div class="sz-bottom-right">
+                <div class="sz-contact-status" id="sz-contact-status">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    <span id="sz-contact-label">CONTACTS: STANDBY</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- FLOATING STATUS BOX -->
+        <!-- ============================== -->
+        <div class="fp-status-box" id="fp-status-box">
+            <div class="fp-status-row">
+                <div class="sz-signal-indicator" id="sz-signal">
+                    <div class="sz-signal-bars">
+                        <span class="sz-signal-bar bar-1 active"></span>
+                        <span class="sz-signal-bar bar-2 active"></span>
+                        <span class="sz-signal-bar bar-3 active"></span>
+                        <span class="sz-signal-bar bar-4 active"></span>
+                    </div>
+                    <span class="sz-signal-label" id="sz-signal-label">STRONG</span>
+                </div>
+            </div>
+            <div class="fp-status-row">
+                <div class="sz-gps-lock" id="sz-gps">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/>
+                        <line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
+                    </svg>
+                    <span id="sz-gps-label">GPS LOCKED</span>
+                </div>
+            </div>
+            <div class="fp-status-row">
+                <div class="sz-status-badge" id="sz-badge">
+                    <span class="sz-badge-dot"></span>
+                    <span id="sz-badge-text">SECURE</span>
+                </div>
+            </div>
+            <div class="fp-status-row">
+                <span class="fp-status-clock" id="sz-system-clock">SYS --:--:--</span>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- FOOTER -->
+        <!-- ============================== -->
+        <footer class="viz-page-footer">
+            <div class="viz-page-footer-glow"></div>
+            <p>&copy; 2026 <a href="../index.html">SECURENCE</a>. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="js/engine.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/safezone-advanced.js"></script>
+    <script src="js/floating-panels.js"></script>
+</body>
+</html>

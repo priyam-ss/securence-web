@@ -1,0 +1,1177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SECURENCE — A next-gen women's safety device powered by AI, GPS tracking, and instant SOS alerts. Your safety, reimagined.">
+    <meta name="keywords"
+        content="women safety, personal safety device, SOS alert, GPS tracking, self defense, SECURENCE">
+    <meta name="author" content="Team SECURENCE">
+    <title>SECURENCE — Your Safety. Reimagined.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!-- PRELOADER -->
+    <!-- ============================== -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- PARTICLE CANVAS (Background) -->
+    <!-- ============================== -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" id="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d946ef" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                            stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#how-it-works" class="nav-link">Working</a></li>
+                <li><a href="#live-demo" class="nav-link">Demo</a></li>
+                <li><a href="#scenario" class="nav-link">Scenarios</a></li>
+                <li><a href="#future" class="nav-link">Future</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#support" class="nav-link">Support</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+            <button class="nav-cta" id="nav-cta">Join the Mission</button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-overlay">
+        <ul class="mobile-nav-links">
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#features" class="mobile-nav-link">Features</a></li>
+            <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+            <li><a href="#live-demo" class="mobile-nav-link">Live Demo</a></li>
+            <li><a href="#scenario" class="mobile-nav-link">Scenarios</a></li>
+            <li><a href="#future" class="mobile-nav-link">Future</a></li>
+            <li><a href="#achievements" class="mobile-nav-link">Achievements</a></li>
+            <li><a href="#support" class="mobile-nav-link">Support</a></li>
+            <li><a href="#team" class="mobile-nav-link">Team</a></li>
+            <li><a href="mission.html" class="mobile-nav-link cta-link">Join the Mission</a></li>
+        </ul>
+    </div>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================== -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-bg-effects">
+            <div class="hero-glow hero-glow-1"></div>
+            <div class="hero-glow hero-glow-2"></div>
+            <div class="hero-glow hero-glow-3"></div>
+            <div class="hero-light-streaks">
+                <div class="streak streak-1"></div>
+                <div class="streak streak-2"></div>
+                <div class="streak streak-3"></div>
+                <div class="streak streak-4"></div>
+                <div class="streak streak-5"></div>
+            </div>
+        </div>
+
+        <!-- 3D Device Display -->
+        <div class="hero-device-container" id="hero-device">
+            <div class="device-aura"></div>
+            <div class="device-aura device-aura-2"></div>
+            <div class="device-body">
+                <div class="device-face device-front">
+                    <div class="device-screen">
+                        <div class="device-logo"><svg viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></div>
+                        <div class="device-status">ACTIVE</div>
+                        <div class="device-pulse"></div>
+                    </div>
+                </div>
+                <div class="device-face device-back"></div>
+                <div class="device-face device-left"></div>
+                <div class="device-face device-right"></div>
+                <div class="device-face device-top"></div>
+                <div class="device-face device-bottom"></div>
+            </div>
+            <div class="device-shadow"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge" id="hero-badge">
+                <span class="badge-dot"></span>
+                NEXT-GEN SAFETY TECHNOLOGY
+            </div>
+            <h1 class="hero-title" id="hero-title">
+                <span class="title-line">Your Safety.</span>
+                <span class="title-line title-accent">Reimagined.</span>
+            </h1>
+            <p class="hero-subtitle" id="hero-subtitle">
+                Not just a device. A shield powered by technology.
+            </p>
+            <div class="hero-actions" id="hero-actions">
+                <a href="#features" class="btn btn-primary">
+                    <span>Explore Features</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-ghost">
+                    <span>Our Story</span>
+                </a>
+            </div>
+            <div class="hero-stats" id="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="87">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Women feel unsafe at night</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-suffix">sec</span>
+                    <span class="stat-label">Average SOS response</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="360">0</span><span class="stat-suffix">°</span>
+                    <span class="stat-label">Protection coverage</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" id="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to Explore</span>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================== -->
+    <section id="about" class="section about-section">
+        <div class="section-container">
+            <div class="about-intro">
+                <div class="section-label" data-anim="fade-up">THE PROBLEM</div>
+                <h2 class="section-title about-title" data-anim="fade-up">
+                    Every <span class="text-gradient">6 minutes</span>, a woman faces violence somewhere in the world.
+                </h2>
+            </div>
+
+            <div class="about-story">
+                <div class="story-block" data-anim="fade-right">
+                    <div class="story-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                            <path d="M12 8v4l3 3" />
+                        </svg>
+                    </div>
+                    <h3>The Fear That Never Leaves</h3>
+                    <p>Walking home alone at night. Taking public transport after dark. Holding your phone a little
+                        tighter. Looking back, just to be sure. That constant feeling of being watched… followed… or
+                        cornered. For millions of women, this isn’t a movie scene — it’s part of everyday life. Not
+                        once, not rarely, but again and again. The world promised safety, but too often, it stays
+                        silent.</p>
+                </div>
+
+                <div class="story-block" data-anim="fade-left">
+                    <div class="story-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3>A Solution That Fights Back</h3>
+                    <p>SECURENCE isn’t just another gadget on a shelf. It’s made for the moments no one talks about
+                        enough. A presence that stays with you. A silent guardian that doesn’t sleep. Built from
+                        frustration. Built from the need for something better. Because “be careful” was never enough.
+                        Safety isn’t a privilege — it’s a right. And when something feels wrong, SECURENCE doesn’t wait.
+                        It acts.</p>
+                </div>
+
+                <div class="story-block story-highlight" data-anim="fade-up">
+                    <div class="story-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                    </div>
+                    <h3>More Than Technology. A Movement.</h3>
+                    <p>This is more than a product. This is about changing a reality that has been accepted for too
+                        long. A future where no woman has to think twice before going home. Where fear isn’t part of the
+                        journey. Where “be careful” is no longer needed. Where technology stands between danger and the
+                        person facing it. This is SECURENCE. Not just an idea. Not just a device. A change that begins
+                        now.</p>
+
+                </div>
+            </div>
+
+            <div class="about-visual" data-anim="fade-up">
+                <div class="visual-card">
+                    <div class="visual-stat">
+                        <span class="visual-number" data-count="843">0</span><span class="visual-suffix">M+</span>
+                        <span class="visual-label">Women affected by violence globally</span>
+                    </div>
+                    <div class="visual-stat">
+                        <span class="visual-number" data-count="1">0</span>
+                        <span class="visual-label">Device. Infinite protection.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FEATURES SECTION -->
+    <!-- ============================== -->
+    <section id="features" class="section features-section">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">CAPABILITIES</div>
+                <h2 class="section-title">Engineered for <span class="text-gradient">Every Threat</span></h2>
+                <p class="section-desc">Seven layers of protection, working together quietly in the background — so you
+                    feel safer in every moment.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1: SOS Emergency Call -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">SOS Emergency Call</h3>
+                    <p class="feature-desc">One press. No delay. No confusion.
+                        Instantly connects you to your emergency contacts and local authorities. No unlocking, no
+                        searching — just immediate help when it matters most.
+                        Core Feature.</p>
+                    <div class="feature-tag">Core Feature</div>
+                </div>
+
+                <!-- Feature 2: GPS Live Tracking -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0.1">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">GPS Live Tracking</h3>
+                    <p class="feature-desc">Your location, shared in real time with the people you trust.
+                        So even when you’re alone, someone always knows where you are. Accurate, reliable, and always
+                        on.
+                        Always On.</p>
+                    <div class="feature-tag">Always On</div>
+                </div>
+
+                <!-- Feature 3: Teaser Shock System -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0.2">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Teaser Shock System</h3>
+                    <p class="feature-desc">A powerful, non-lethal defense designed for critical moments.
+                        It gives you the chance to break free, create distance, and get to safety — when every second
+                        counts.
+                        Self Defense.</p>
+                    <div class="feature-tag">Self Defense</div>
+                </div>
+
+                <!-- Feature 4: Pepper Spray Integration -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0.3">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Pepper Spray Integration</h3>
+                    <p class="feature-desc">Built-in protection, ready in a single motion.
+                        Creates an instant safety barrier, helping you stop a threat before it gets closer.
+                        Protection.</p>
+                    <div class="feature-tag">Self Defense</div>
+                </div>
+
+                <!-- Feature 5: Voice Activation -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0.4">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                                <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Voice Activation</h3>
+                    <p class="feature-desc">If your hands can’t reach, your voice can.
+                        Just say “Help me,” and SECURENCE activates emergency protocols immediately — no action needed.
+                        Hands-Free.</p>
+                    <div class="feature-tag">Hands-Free</div>
+                </div>
+
+                <!-- Feature 6: Safe Zone Alerts -->
+                <div class="feature-card" data-anim="fade-up" data-delay="0.5">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4l2 2" />
+                                <path d="M8 3.5A10.5 10.5 0 003.5 8" />
+                                <path d="M16 3.5A10.5 10.5 0 0120.5 8" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Safe Zone Alerts</h3>
+                    <p class="feature-desc">Intelligent geofencing that notifies you when entering high-risk areas and
+                        guides you to the nearest verified safe zones.</p>
+                    <div class="feature-tag">Smart</div>
+                </div>
+
+                <!-- Feature 7: AI Threat Detection -->
+                <div class="feature-card feature-card-future" data-anim="fade-up" data-delay="0.6">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1.27A7 7 0 0112 22a7 7 0 01-7.73-3H3a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z" />
+                                <circle cx="9" cy="14" r="1" />
+                                <circle cx="15" cy="14" r="1" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="feature-future-badge">COMING SOON</div>
+                    <h3 class="feature-title">AI Threat Detection</h3>
+                    <p class="feature-desc">Machine learning algorithms that analyze environmental patterns and predict
+                        potential threats before they happen.</p>
+                    <div class="feature-tag">Future AI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- HOW IT WORKS SECTION -->
+    <!-- ============================== -->
+    <section id="how-it-works" class="section hiw-section">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">PROTOCOL</div>
+                <h2 class="section-title">From Danger to <span class="text-gradient">Safety in Seconds</span></h2>
+                <p class="section-desc">A seamless chain of protection that activates the moment you need it.</p>
+            </div>
+
+            <div class="hiw-timeline">
+                <!-- Step 1 -->
+                <div class="hiw-step" data-anim="fade-right" data-step="1">
+                    <div class="step-connector">
+                        <div class="step-line"></div>
+                        <div class="step-dot">
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </div>
+                        <h3>Threat Detected</h3>
+                        <p>You sense danger. Your instinct kicks in. In that critical moment, SECURENCE is already in
+                            your hand — or your voice reaches it first.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="hiw-step" data-anim="fade-left" data-step="2">
+                    <div class="step-connector">
+                        <div class="step-line"></div>
+                        <div class="step-dot">
+                            <span>2</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="3" />
+                                <line x1="12" y1="2" x2="12" y2="6" />
+                                <line x1="12" y1="18" x2="12" y2="22" />
+                                <line x1="2" y1="12" x2="6" y2="12" />
+                                <line x1="18" y1="12" x2="22" y2="12" />
+                            </svg>
+                        </div>
+                        <h3>Signal Activated</h3>
+                        <p>Press the SOS button or say "Help me." SECURENCE instantly activates — sending distress
+                            signals, locking GPS coordinates, and arming defense systems.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="hiw-step" data-anim="fade-right" data-step="3">
+                    <div class="step-connector">
+                        <div class="step-line"></div>
+                        <div class="step-dot">
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3" />
+                                <path d="M15 2h7v7" />
+                                <path d="M22 2l-7 7" />
+                            </svg>
+                        </div>
+                        <h3>Alerts Dispatched</h3>
+                        <p>Emergency contacts receive your live location with a single tap. Authorities are notified.
+                            Your GPS coordinates are broadcasted every second.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="hiw-step" data-anim="fade-left" data-step="4">
+                    <div class="step-connector">
+                        <div class="step-line"></div>
+                        <div class="step-dot">
+                            <span>4</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <polyline points="9 12 11 14 15 10" />
+                            </svg>
+                        </div>
+                        <h3>Defense Engaged</h3>
+                        <p>Teaser shock or pepper spray deploys on command. A 120dB alarm pierces the silence. You fight
+                            back — not alone, but with technology as your weapon.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="hiw-step" data-anim="fade-right" data-step="5">
+                    <div class="step-connector">
+                        <div class="step-line"></div>
+                        <div class="step-dot step-dot-final">
+                            <span>✓</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon step-icon-final">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <h3>Help Arrives. You're Safe.</h3>
+                        <p>Authorities and contacts converge on your location. The situation is controlled. You made it
+                            — because you had SECURENCE.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- LIVE DEMO SECTION -->
+    <!-- ============================== -->
+    <section id="live-demo" class="section demo-section">
+        <div class="demo-bg">
+            <div class="demo-glow-orb demo-glow-orb-1"></div>
+            <div class="demo-glow-orb demo-glow-orb-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">PREVIEW</div>
+                <h2 class="section-title">Live <span class="text-gradient">Demo</span></h2>
+                <p class="section-desc">See SECURENCE in action — technology that stands between danger and its target.
+                </p>
+            </div>
+
+            <!-- Glassmorphism Video Container -->
+            <div class="demo-container" data-anim="fade-up" data-delay="0.15">
+                <div class="demo-container-glow"></div>
+                <div class="demo-video-wrapper" id="demo-video-wrapper">
+                    <!-- YouTube embed -->
+                    <iframe src="https://www.youtube.com/watch?v=qgTbI5i9_Os&t=412s" allowfullscreen></iframe>
+
+                    <!-- Or local video -->
+                    <video src="https://www.youtube.com/watch?v=qgTbI5i9_Os&t=412s" controls></video>
+
+                    <div class="demo-placeholder">
+                        <div class="demo-play-ring">
+                            <div class="demo-play-btn" id="demo-play-btn">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                    <polygon points="6,3 20,12 6,21" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="demo-placeholder-text">Demo video coming soon</p>
+                        <p class="demo-placeholder-sub">A cinematic preview of SECURENCE in real-world scenarios</p>
+                    </div>
+                </div>
+                <!-- Decorative corner accents -->
+                <div class="demo-corner demo-corner-tl"></div>
+                <div class="demo-corner demo-corner-tr"></div>
+                <div class="demo-corner demo-corner-bl"></div>
+                <div class="demo-corner demo-corner-br"></div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="demo-cta" data-anim="fade-up" data-delay="0.3">
+                <a href="#live-demo" class="btn btn-primary" id="btn-watch-demo">
+                    <span>Watch Demo</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- REAL-LIFE SCENARIO SECTION -->
+    <!-- ============================== -->
+    <section id="scenario" class="section scenario-section">
+        <div class="scenario-bg"></div>
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">REAL SCENARIO</div>
+                <h2 class="section-title">When Every Second <span class="text-gradient">Counts</span></h2>
+            </div>
+
+            <div class="scenario-story">
+                <!-- Scene 1 -->
+                <div class="scene" data-anim="scene" data-scene="1">
+                    <div class="scene-visual">
+                        <div class="scene-orb scene-orb-dim"></div>
+                        <div class="scene-number">01</div>
+                    </div>
+                    <div class="scene-content">
+                        <div class="scene-time">11:47 PM</div>
+                        <h3 class="scene-title">The Walk Home</h3>
+                        <p class="scene-text">Priya leaves her office late. The streets are empty. Her phone is at 12%.
+                            Footsteps echo behind her — getting closer. She clutches her bag tighter. Fear sets in.
+                            She's been here before — alone, vulnerable, hoping to make it home.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 2 -->
+                <div class="scene" data-anim="scene" data-scene="2">
+                    <div class="scene-visual">
+                        <div class="scene-orb scene-orb-danger"></div>
+                        <div class="scene-number">02</div>
+                    </div>
+                    <div class="scene-content">
+                        <div class="scene-time">11:49 PM</div>
+                        <h3 class="scene-title">The Threat Emerges</h3>
+                        <p class="scene-text">A figure steps out from the shadows. Blocks her path. Heart racing,
+                            adrenaline surging. In the old world, this is where the story takes a dark turn. But Priya
+                            isn't alone tonight.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 3 -->
+                <div class="scene" data-anim="scene" data-scene="3">
+                    <div class="scene-visual">
+                        <div class="scene-orb scene-orb-active"></div>
+                        <div class="scene-number">03</div>
+                    </div>
+                    <div class="scene-content">
+                        <div class="scene-time">11:49 PM — 3 seconds later</div>
+                        <h3 class="scene-title">SECURENCE Activates</h3>
+                        <p class="scene-text">She whispers "Help me." The device vibrates — acknowledgment. SOS is sent.
+                            GPS is live. Her brother, her best friend, and local police receive her exact location. The
+                            120dB alarm shatters the silence. The built-in light blinds the attacker.</p>
+                    </div>
+                </div>
+
+                <!-- Scene 4 -->
+                <div class="scene" data-anim="scene" data-scene="4">
+                    <div class="scene-visual">
+                        <div class="scene-orb scene-orb-safe"></div>
+                        <div class="scene-number">04</div>
+                    </div>
+                    <div class="scene-content">
+                        <div class="scene-time">11:52 PM</div>
+                        <h3 class="scene-title">Situation Controlled</h3>
+                        <p class="scene-text">The attacker flees. Help is 2 minutes away. Priya is breathing hard but
+                            standing tall. She's safe. Not because she was lucky — because she was prepared. Because she
+                            had SECURENCE.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-conclusion" data-anim="fade-up">
+                <p class="conclusion-text">"The difference between a victim and a survivor is <span
+                        class="text-gradient">3 seconds of technology.</span>"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FUTURE VISION SECTION -->
+    <!-- ============================== -->
+    <section id="future" class="section future-section">
+        <div class="future-bg">
+            <div class="future-grid-lines"></div>
+        </div>
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">ROADMAP</div>
+                <h2 class="section-title">The Future of <span class="text-gradient">Safety</span></h2>
+                <p class="section-desc">What we're building next will redefine personal security forever.</p>
+            </div>
+
+            <div class="future-grid">
+                <!-- Future Feature 1 -->
+                <div class="future-card" data-anim="fade-up" data-delay="0">
+                    <div class="future-card-glow"></div>
+                    <div class="future-phase">Phase 2</div>
+                    <div class="future-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1.27A7 7 0 0112 22a7 7 0 01-7.73-3H3a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z" />
+                            <circle cx="9" cy="14" r="1" />
+                            <circle cx="15" cy="14" r="1" />
+                        </svg>
+                    </div>
+                    <h3>AI-Based Danger Prediction</h3>
+                    <p>Machine learning models analyzing crime data, time patterns, and environmental cues to warn you
+                        before danger even appears.</p>
+                    <div class="future-status">
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 35%"></div>
+                        </div>
+                        <span>In Research</span>
+                    </div>
+                </div>
+
+                <!-- Future Feature 2 -->
+                <div class="future-card" data-anim="fade-up" data-delay="0.15">
+                    <div class="future-card-glow"></div>
+                    <div class="future-phase">Phase 2</div>
+                    <div class="future-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polygon points="23 7 16 12 23 17 23 7" />
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                        </svg>
+                    </div>
+                    <h3>Live Video Streaming</h3>
+                    <p>Stream real-time video to emergency contacts and authorities. Visual evidence and live assessment
+                        of the situation.</p>
+                    <div class="future-status">
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 20%"></div>
+                        </div>
+                        <span>Concept Stage</span>
+                    </div>
+                </div>
+
+                <!-- Future Feature 3 -->
+                <div class="future-card" data-anim="fade-up" data-delay="0.3">
+                    <div class="future-card-glow"></div>
+                    <div class="future-phase">Phase 3</div>
+                    <div class="future-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                        </svg>
+                    </div>
+                    <h3>Offline Recording</h3>
+                    <p>Even without network connectivity, SECURENCE records audio and video locally, uploading evidence
+                        the moment a connection is restored.</p>
+                    <div class="future-status">
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 45%"></div>
+                        </div>
+                        <span>In Development</span>
+                    </div>
+                </div>
+
+                <!-- Future Feature 4 -->
+                <div class="future-card" data-anim="fade-up" data-delay="0.45">
+                    <div class="future-card-glow"></div>
+                    <div class="future-phase">Phase 3</div>
+                    <div class="future-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M7 7h3v3H7zM14 7h3v3h-3zM7 14h3v3H7zM14 14h3v3h-3z" />
+                        </svg>
+                    </div>
+                    <h3>QR-Based Safe Place Verification</h3>
+                    <p>Scan a QR code at shops, stations, and public spaces to verify they are certified safe zones with
+                        active security infrastructure.</p>
+                    <div class="future-status">
+                        <div class="status-bar">
+                            <div class="status-fill" style="width: 15%"></div>
+                        </div>
+                        <span>Planning</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="future-cta" data-anim="fade-up">
+                <p>The technology of tomorrow is being built today.</p>
+                <div style="margin-top: 32px;">
+                    <a href="securence-visualization/index.html" class="btn btn-primary" id="btn-visualize-future">
+                        <span>Visualize the Future of Safety</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- SUPPORT SECTION -->
+    <!-- ============================== -->
+    <section id="support" class="section support-section">
+        <div class="support-bg">
+            <div class="support-glow"></div>
+        </div>
+        <div class="section-container">
+            <div class="support-content" data-anim="fade-up">
+                <div class="section-label">JOIN US</div>
+                <h2 class="section-title support-title">This Is Just the <span class="text-gradient">Beginning.</span>
+                </h2>
+                <p class="support-text">One device can protect one woman. But with your support, we can protect
+                    millions. Every contribution, every share, every voice brings us closer to a world where safety
+                    isn't a privilege — it's a promise.</p>
+                <p class="support-quote">"With your support, we can make the world safer."</p>
+
+                <div class="support-buttons">
+                    <a href="support.html" class="btn btn-primary btn-lg" id="btn-support">
+                        <span>Support the Project</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                        </svg>
+                    </a>
+                    <a href="mission.html" class="btn btn-primary btn-lg" id="btn-join">
+                        <span>Join the Mission</span>
+                    </a>
+                    <a href="#" class="btn btn-primary btn-lg" id="btn-share">
+                        <span>Share Awareness</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="support-impact">
+                    <div class="impact-item" data-anim="fade-up">
+                        <div class="impact-icon">🛡️</div>
+                        <span class="impact-number" data-count="1000">0</span><span class="impact-suffix">+</span>
+                        <span class="impact-label">Lives to Protect</span>
+                    </div>
+                    <div class="impact-item" data-anim="fade-up">
+                        <div class="impact-icon">🌍</div>
+                        <span class="impact-number" data-count="50">0</span><span class="impact-suffix">+</span>
+                        <span class="impact-label">Cities Targeted</span>
+                    </div>
+                    <div class="impact-item" data-anim="fade-up">
+                        <div class="impact-icon">💡</div>
+                        <span class="impact-number" data-count="7">0</span>
+                        <span class="impact-label">Safety Features</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- ACHIEVEMENTS SECTION -->
+    <!-- ============================== -->
+    <section id="achievements" class="section achievements-section">
+        <div class="achievements-bg">
+            <div class="achievements-glow-1"></div>
+            <div class="achievements-glow-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">MILESTONES</div>
+                <h2 class="section-title">Achievements That <span class="text-gradient">Define Us</span></h2>
+                <p class="section-desc">Every prize, every recognition, every word of encouragement fuels the mission
+                    forward.</p>
+            </div>
+
+            <div class="achievement-grid">
+                <!-- 
+                    ┌────────────────────────────────────────────┐
+                    │  HOW TO ADD YOUR ACHIEVEMENT IMAGES:       │
+                    │                                            │
+                    │  Copy this block and replace src & alt:    │
+                    │                                            │
+                    │  <div class="achievement-card"              │
+                    │       data-anim="fade-up">                 │
+                    │      <img src="images/your-image.jpg"      │
+                    │           alt="Description">               │
+                    │  </div>                                    │
+                    │                                            │
+                    │  You can add UNLIMITED cards.              │
+                    │  Grid auto-adjusts. No cropping.           │
+                    └────────────────────────────────────────────┘
+                -->
+
+                <!-- Sample placeholder cards — replace src with your actual images -->
+                <div class="achievement-card" data-anim="fade-up" data-delay="0">
+                    <div class="achievement-card-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 15l-3-3h2V8h2v4h2l-3 3z" />
+                            <path d="M20 18H4a1 1 0 01-1-1V7a1 1 0 011-1h16a1 1 0 011 1v10a1 1 0 01-1 1z" />
+                        </svg>
+                        <span>Prize Photo</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-anim="fade-up" data-delay="0.1">
+                    <div class="achievement-card-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M7 7h10M7 12h10M7 17h6" />
+                        </svg>
+                        <span>Certificate</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-anim="fade-up" data-delay="0.2">
+                    <div class="achievement-card-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                        <span>Letter</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-anim="fade-up" data-delay="0.3">
+                    <div class="achievement-card-placeholder">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="8" r="7" />
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                        </svg>
+                        <span>Award</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="achievements-buttons" data-anim="fade-up">
+                <a href="inside.html" class="btn btn-primary btn-lg" id="btn-inside">
+                    <span>Inside SECURENCE</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                </a>
+                <a href="demo.html" class="btn btn-primary btn-lg" id="btn-demo">
+                    <span>Live Demonstrations</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="23 7 16 12 23 17 23 7" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- TEAM SECTION -->
+    <!-- ============================== -->
+    <section id="team" class="section team-section">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">THE INNOVATORS</div>
+                <h2 class="section-title">Built by <span class="text-gradient">Visionaries</span></h2>
+                <p class="section-desc">Not just students. Engineers, dreamers, and fighters for a safer world.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card" data-anim="fade-up" data-delay="0">
+                    <div class="team-card-glow"></div>
+                    <div class="team-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Anindya</h3>
+                    <p class="team-role">Lead Innovator & Architect</p>
+                    <p class="team-bio">The mind behind the machine. Transforming the concept of personal safety from
+                        theory into technology that saves lives.</p>
+                    <div class="team-links">
+                        <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+                        <a href="#" class="team-social" aria-label="GitHub">gh</a>
+                    </div>
+                </div>
+
+                <div class="team-card" data-anim="fade-up" data-delay="0.15">
+                    <div class="team-card-glow"></div>
+                    <div class="team-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Hardware Engineer</p>
+                    <p class="team-bio">Designing the physical shield. Engineering precision hardware that bridges the
+                        gap between safety and wearability.</p>
+                    <div class="team-links">
+                        <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+                        <a href="#" class="team-social" aria-label="GitHub">gh</a>
+                    </div>
+                </div>
+
+                <div class="team-card" data-anim="fade-up" data-delay="0.3">
+                    <div class="team-card-glow"></div>
+                    <div class="team-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Software Architect</p>
+                    <p class="team-bio">Coding the intelligence. Building the AI and software backbone that makes
+                        SECURENCE smarter with every interaction.</p>
+                    <div class="team-links">
+                        <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+                        <a href="#" class="team-social" aria-label="GitHub">gh</a>
+                    </div>
+                </div>
+
+                <div class="team-card" data-anim="fade-up" data-delay="0.45">
+                    <div class="team-card-glow"></div>
+                    <div class="team-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Research & Strategy</p>
+                    <p class="team-bio">Shaping the mission. Researching threats, mapping solutions, and ensuring
+                        SECURENCE stays ahead of every danger.</p>
+                    <div class="team-links">
+                        <a href="#" class="team-social" aria-label="LinkedIn">in</a>
+                        <a href="#" class="team-social" aria-label="GitHub">gh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer id="footer" class="footer-section">
+        <div class="footer-glow"></div>
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></span>
+                        <span class="logo-text">SECURENCE</span>
+                    </div>
+                    <p class="footer-tagline">Your Safety. Reimagined.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="#about">About</a>
+                        <a href="#features">Features</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#future">Future Vision</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="support.html">Support Us</a>
+                        <a href="#team">Our Team</a>
+                        <a href="inside.html">Inside SECURENCE</a>
+                        <a href="demo.html">Live Demos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter / X</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="nda.html">NDA</a>
+                        <a href="founder-team-agreement.html">Founder & Team Agreement</a>
+                        <a href="product-notice.html">Product Page Notice</a>
+                        <a href="ip-protection.html">IP Protection Clause</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SECURENCE. All rights reserved. Built with purpose.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html"></a>
+                    <a href="terms-and-conditions.html"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
