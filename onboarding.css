@@ -1,0 +1,497 @@
+/* ============================================
+   SECURENCE — Onboarding Page Styles
+   Disabled nav, legal popup, processing overlay
+   ============================================ */
+
+/* ──── Disabled Back Link ──── */
+.ob-back-disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+}
+
+.ob-logo-static {
+    pointer-events: none;
+}
+
+/* ──── Footer — Legal Only ──── */
+.ob-footer {
+    text-align: center;
+    padding: 28px 20px 24px;
+}
+
+.ob-footer p {
+    font-size: 0.75rem;
+    color: rgba(180, 180, 210, 0.35);
+    margin-top: 12px;
+}
+
+.ob-footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.ob-footer-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(168, 85, 247, 0.55);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.ob-footer-link:hover {
+    color: #a855f7;
+}
+
+.ob-footer-sep {
+    color: rgba(180, 180, 210, 0.2);
+    font-size: 0.8rem;
+}
+
+/* ──── Terms Checkbox ──── */
+.onboarding-terms-group {
+    margin-top: 8px;
+}
+
+.onboarding-terms-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.onboarding-terms-input {
+    display: none;
+}
+
+.onboarding-terms-check {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 1.5px solid rgba(168, 85, 247, 0.25);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(15, 15, 35, 0.4);
+    margin-top: 1px;
+}
+
+.onboarding-terms-check svg {
+    opacity: 0;
+    transform: scale(0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #fff;
+}
+
+.onboarding-terms-input:checked + .onboarding-terms-check {
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.3);
+}
+
+.onboarding-terms-input:checked + .onboarding-terms-check svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.onboarding-terms-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(180, 180, 210, 0.55);
+    line-height: 1.5;
+}
+
+.onboarding-terms-link {
+    color: #a855f7;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.onboarding-terms-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #a855f7;
+    transition: width 0.3s ease;
+}
+
+.onboarding-terms-link:hover {
+    color: #c084fc;
+}
+
+.onboarding-terms-link:hover::after {
+    width: 100%;
+}
+
+/* ──── Legal Popup ──── */
+.ob-legal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 3, 12, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 40px 20px;
+}
+
+.ob-legal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ob-legal-modal {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    max-height: 80vh;
+    background: rgba(10, 10, 28, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+        0 0 50px rgba(168, 85, 247, 0.1),
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.ob-legal-overlay.active .ob-legal-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.ob-legal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ob-legal-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f0f0f5, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ob-legal-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    color: rgba(200, 200, 220, 0.6);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ob-legal-close:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+.ob-legal-body {
+    padding: 24px 28px 28px;
+    overflow-y: auto;
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(200, 200, 220, 0.65);
+    line-height: 1.8;
+}
+
+.ob-legal-body::-webkit-scrollbar { width: 5px; }
+.ob-legal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); border-radius: 4px; }
+.ob-legal-body::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.25); border-radius: 4px; }
+.ob-legal-body::-webkit-scrollbar-thumb:hover { background: rgba(168,85,247,0.4); }
+
+.ob-legal-body h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #f0f0f5;
+    margin: 24px 0 8px;
+}
+
+.ob-legal-body h4:first-child {
+    margin-top: 0;
+}
+
+.ob-legal-body p {
+    margin-bottom: 12px;
+}
+
+/* ──── Processing Overlay ──── */
+.ob-process-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 5, 16, 0.96);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ob-process-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ob-process-content {
+    text-align: center;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.ob-proc-ring {
+    margin: 0 auto 36px;
+    width: 70px;
+    height: 70px;
+}
+
+.ob-proc-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.ob-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ob-step.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.ob-step-indicator {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ob-step-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(168, 85, 247, 0.15);
+    border-top-color: #a855f7;
+    border-radius: 50%;
+    animation: obSpin 0.8s linear infinite;
+}
+
+.ob-step.done .ob-step-spinner {
+    display: none;
+}
+
+.ob-step-check {
+    display: none;
+    color: #10b981;
+}
+
+.ob-step-check svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ob-step.done .ob-step-check {
+    display: block;
+    animation: obCheckPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ob-step-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(180, 180, 210, 0.5);
+    letter-spacing: 0.3px;
+}
+
+.ob-step.done .ob-step-text {
+    color: rgba(200, 200, 220, 0.8);
+}
+
+.ob-step.granted .ob-step-text {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.ob-step.granted .ob-step-check {
+    color: #10b981;
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+}
+
+/* ──── Popup Message ──── */
+.ob-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ob-popup-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 3, 12, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    animation: obFadeIn 0.4s ease forwards;
+}
+
+.ob-popup-card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 36px 32px;
+    max-width: 380px;
+    width: 100%;
+    background: rgba(10, 10, 30, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.1), 0 20px 60px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    animation: obPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.ob-popup-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+}
+
+.ob-popup-error .ob-popup-icon {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.15);
+}
+
+.ob-popup-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f0f0f5;
+    margin-bottom: 8px;
+}
+
+.ob-popup-msg {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(180, 180, 210, 0.6);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.ob-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+.ob-popup-btn:hover {
+    background: rgba(168, 85, 247, 0.18);
+    transform: translateY(-2px);
+}
+
+/* ──── Animations ──── */
+@keyframes obSpin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes obCheckPop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes obFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes obPopIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes obPopOut {
+    to { opacity: 0; transform: scale(0.96); }
+}
+
+/* ──── Responsive ──── */
+@media (max-width: 600px) {
+    .ob-legal-overlay { padding: 16px 10px; }
+    .ob-legal-modal { max-height: 85vh; border-radius: 16px; }
+    .ob-legal-header { padding: 18px 20px 14px; }
+    .ob-legal-body { padding: 18px 20px 22px; font-size: 0.8rem; }
+    .ob-legal-title { font-size: 1rem; }
+    .ob-process-content { padding: 30px 20px; }
+    .ob-proc-ring { width: 56px; height: 56px; }
+    .ob-footer-links { gap: 8px; }
+    .ob-footer-link { font-size: 0.72rem; }
+    .ob-popup-card { padding: 32px 24px 28px; }
+}

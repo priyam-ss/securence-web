@@ -94,6 +94,20 @@ a {
     text-decoration: none;
 }
 
+/* ──────────── Onboarding Lock — Disabled Link (Nuclear) ──────────── */
+a.ob-link-disabled,
+a[data-blocked-href],
+a[data-ob-blocked] {
+    opacity: 0.2 !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -352,15 +366,23 @@ img {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
+    padding: 0 24px;
+    width: 100%;
+    max-width: 360px;
 }
 
 .mobile-nav-link {
     font-family: var(--font-display);
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-secondary);
     transition: color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    padding: 6px 0;
 }
 
 .mobile-nav-link:hover {
@@ -368,9 +390,14 @@ img {
 }
 
 .mobile-nav-link.cta-link {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: var(--neon-purple);
-    margin-top: 16px;
+    margin-top: 10px;
+    padding: 10px 24px;
+    border: 1px solid var(--border-glow);
+    border-radius: 100px;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 /* ──────────── Section Base ──────────── */
@@ -507,7 +534,9 @@ img {
     justify-content: center;
     min-height: 100vh;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
+    z-index: 2;
 }
 
 /* Hero Background Effects */
@@ -966,7 +995,7 @@ img {
 /* ──────────── ABOUT SECTION ──────────── */
 .about-section {
     padding: var(--section-padding) 0;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 15%, var(--bg-secondary) 100%);
 }
 
 .about-intro {
@@ -1716,131 +1745,63 @@ img {
 /* ──────────── TEAM SECTION ──────────── */
 .team-section {
     padding: var(--section-padding) 0;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-}
-
-.team-card {
+    background: var(--bg-primary);
     position: relative;
-    padding: 40px 32px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-    transition: all 0.4s var(--ease-out-expo);
     overflow: hidden;
 }
 
-.team-card:hover {
-    border-color: var(--border-glow);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.12);
+.team-bg {
+    position: absolute;
+    inset: 0;
 }
 
-.team-card-glow {
+.team-glow {
     position: absolute;
-    top: -60px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(168,85,247,0.06), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(168,85,247,0.06), transparent 60%);
 }
 
-.team-card:hover .team-card-glow {
-    opacity: 1;
-}
-
-.team-avatar {
+.team-content {
+    text-align: center;
     position: relative;
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 24px;
+    z-index: 1;
 }
 
-.avatar-ring {
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background: var(--gradient-primary);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding: 2px;
-    animation: ringRotate 4s linear infinite;
+.team-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 24px;
 }
 
-@keyframes ringRotate {
-    to { transform: rotate(360deg); }
+.team-text {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
 }
 
-.avatar-placeholder {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #15153a, #1e1e4a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-}
-
-.team-name {
+.team-quote {
     font-family: var(--font-display);
     font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 6px;
+    font-weight: 600;
+    font-style: italic;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmerGradient 4s linear infinite;
+    margin-bottom: 48px;
 }
 
-.team-role {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--neon-purple);
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.team-bio {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.team-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.team-social {
-    width: 36px;
-    height: 36px;
+.team-cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    border: 1px solid var(--border-subtle);
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    transition: all 0.3s ease;
-}
-
-.team-social:hover {
-    border-color: var(--neon-purple);
-    color: var(--neon-purple);
-    background: rgba(168, 85, 247, 0.08);
 }
 
 /* ──────────── FOOTER ──────────── */
@@ -2479,12 +2440,12 @@ img {
         max-width: 300px;
     }
 
+
     /* Team */
-    .team-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
+    .team-text {
+        font-size: 0.95rem;
     }
+
 
     /* Footer */
     .footer-top {
@@ -2526,5 +2487,219 @@ img {
     .btn-lg {
         padding: 14px 28px;
         font-size: 0.9rem;
+    }
+
+    /* Mobile menu — smaller screens */
+    .mobile-nav-links {
+        gap: 12px;
+        max-width: 280px;
+    }
+
+    .mobile-nav-link {
+        font-size: 1rem;
+        padding: 5px 0;
+    }
+
+    .mobile-nav-link.cta-link {
+        font-size: 0.85rem;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .mobile-nav-links {
+        gap: 10px;
+        max-width: 260px;
+    }
+
+    .mobile-nav-link {
+        font-size: 0.9rem;
+        padding: 4px 0;
+    }
+
+    .mobile-nav-link.cta-link {
+        font-size: 0.8rem;
+        padding: 7px 16px;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   MICRO-ANIMATIONS — Subtle Enhancements
+   ══════════════════════════════════════════════ */
+
+/* ── Card Shine Sweep (border shimmer on hover) ── */
+@keyframes cardShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+.feature-card::after,
+.future-card::after,
+.team-card::after,
+.story-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(168, 85, 247, 0.04),
+        rgba(168, 85, 247, 0.08),
+        rgba(168, 85, 247, 0.04),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.feature-card:hover::after,
+.future-card:hover::after,
+.team-card:hover::after,
+.story-block:hover::after {
+    animation: cardShine 0.8s ease-out forwards;
+}
+
+/* ── Floating Icon Breathing ── */
+@keyframes iconBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.feature-icon-wrap {
+    animation: iconBreathe 3s ease-in-out infinite;
+}
+
+.future-icon {
+    animation: iconBreathe 3.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/* ── Text Gradient Shimmer ── */
+@keyframes shimmerGradient {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.text-gradient {
+    background-size: 200% auto;
+    animation: shimmerGradient 4s linear infinite;
+}
+
+/* ── Section Label Subtle Tracking ── */
+@keyframes labelReveal {
+    0% { letter-spacing: 5px; opacity: 0; }
+    100% { letter-spacing: 3px; opacity: 1; }
+}
+
+[data-anim="fade-up"] .section-label {
+    animation: labelReveal 0.6s ease-out forwards;
+    animation-play-state: paused;
+}
+
+[data-anim="fade-up"].animated .section-label {
+    animation-play-state: running;
+}
+
+/* ── Feature Tag Glow Pulse ── */
+@keyframes tagPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(168, 85, 247, 0); }
+    50% { box-shadow: 0 0 12px rgba(168, 85, 247, 0.15); }
+}
+
+.feature-tag {
+    animation: tagPulse 3s ease-in-out infinite;
+}
+
+/* ── Step Card Subtle Tilt on Hover ── */
+.step-content:hover {
+    transform: perspective(800px) rotateY(-1.5deg) translateY(-4px);
+}
+
+/* ── Impact Counter Glow ── */
+@keyframes counterGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(168, 85, 247, 0.1); }
+    50% { text-shadow: 0 0 25px rgba(168, 85, 247, 0.3); }
+}
+
+.impact-number,
+.stat-number,
+.visual-number {
+    animation: counterGlow 3s ease-in-out infinite;
+}
+
+/* ── Scene Orb Enhanced Breathing ── */
+.scene-orb {
+    animation: orbBreathe 2.5s ease-in-out infinite;
+}
+
+@keyframes orbBreathe {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* ── Hero Badge Dot Pulse ── */
+@keyframes badgeDotPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.5; }
+}
+
+.hero-badge .badge-dot,
+.legal-hero-badge .badge-dot,
+.page-hero-badge .badge-dot {
+    animation: badgeDotPulse 2s ease-in-out infinite;
+}
+
+/* ── Future Status Bar Fill Animation ── */
+@keyframes statusFill {
+    0% { width: 0; }
+}
+
+.status-fill {
+    animation: statusFill 1.5s ease-out forwards;
+    animation-play-state: paused;
+}
+
+[data-anim].animated .status-fill {
+    animation-play-state: running;
+}
+
+/* ── Footer Link Underline Slide ── */
+.footer-col a {
+    position: relative;
+}
+
+.footer-col a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--neon-purple);
+    transition: width 0.3s ease;
+}
+
+.footer-col a:hover::after {
+    width: 100%;
+}
+
+/* ── Scroll Down Indicator Enhanced ── */
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+.scroll-indicator {
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ── Reduce motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
     }
 }

@@ -3,6 +3,21 @@
    Extends styles.css + pages.css design system
    ============================================ */
 
+/* ──────────── Gate Guard — Disabled Link (Nuclear) ──────────── */
+a.ob-link-disabled,
+a[data-blocked-href],
+a[data-ob-blocked] {
+    opacity: 0.2 !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    color: var(--text-muted) !important;
+}
+
 /* ──────────── Page Navigation ──────────── */
 .page-nav {
     position: fixed;
@@ -511,5 +526,124 @@
 
     .legal-card {
         padding: 28px;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   LEGAL PAGE MICRO-ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+/* ── Card Number Breathing ── */
+@keyframes legalNumBreathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.legal-card-number {
+    animation: legalNumBreathe 3s ease-in-out infinite;
+}
+
+/* ── Card Shine Sweep on Hover ── */
+@keyframes legalCardShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+.legal-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(168, 85, 247, 0.04),
+        rgba(168, 85, 247, 0.08),
+        rgba(168, 85, 247, 0.04),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.legal-card:hover::after {
+    animation: legalCardShine 0.8s ease-out forwards;
+}
+
+/* ── Hero Title Subtle Glow ── */
+@keyframes heroTitleGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(168, 85, 247, 0); }
+    50% { text-shadow: 0 0 30px rgba(168, 85, 247, 0.12); }
+}
+
+.legal-hero-title {
+    animation: heroTitleGlow 4s ease-in-out infinite;
+}
+
+/* ── Staggered Card Entry ── */
+.legal-card.animated:nth-child(1) { transition-delay: 0s; }
+.legal-card.animated:nth-child(2) { transition-delay: 0.06s; }
+.legal-card.animated:nth-child(3) { transition-delay: 0.12s; }
+.legal-card.animated:nth-child(4) { transition-delay: 0.18s; }
+.legal-card.animated:nth-child(5) { transition-delay: 0.24s; }
+.legal-card.animated:nth-child(6) { transition-delay: 0.3s; }
+.legal-card.animated:nth-child(7) { transition-delay: 0.36s; }
+.legal-card.animated:nth-child(8) { transition-delay: 0.42s; }
+.legal-card.animated:nth-child(9) { transition-delay: 0.48s; }
+.legal-card.animated:nth-child(10) { transition-delay: 0.54s; }
+
+/* ── Download Button Shine Sweep ── */
+@keyframes downloadShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+.legal-download-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.legal-download-btn:hover::after {
+    animation: downloadShine 0.6s ease-out forwards;
+}
+
+/* ── Footer Link Underline Slide (legal) ── */
+.legal-footer .footer-col a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--neon-purple);
+    transition: width 0.3s ease;
+}
+
+.legal-footer .footer-col a {
+    position: relative;
+}
+
+.legal-footer .footer-col a:hover::after {
+    width: 100%;
+}
+
+/* ── Reduce motion for accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
     }
 }

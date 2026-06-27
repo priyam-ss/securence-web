@@ -1,10 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SECURENCE Live Demonstrations — Watch real-world exhibitions, tech fests, and demo days where SECURENCE proved its mission.">
     <title>SECURENCE — Live Demonstrations</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +22,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="onboarding-modal.css">
 </head>
 <body>
 
@@ -325,5 +329,13 @@
 
     <!-- Gallery JS -->
     <script src="gallery.js"></script>
+
+    <!-- Firebase SDK — Loads BEFORE onboarding modal -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js"></script>
+
+    <!-- Onboarding Modal (shows if user hasn't registered) -->
+    <script src="onboarding-modal.js"></script>
 </body>
 </html>

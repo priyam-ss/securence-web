@@ -93,6 +93,15 @@
     }
 
     // ──────────── FORM SUBMISSION ────────────
+
+    // Double-submit prevention flag
+    let isSubmitting = false;
+
+    // Email format validator
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
     function collectFormData(form) {
         const data = {};
         const elements = form.querySelectorAll('input[name], textarea[name], select[name]');
@@ -129,14 +138,24 @@
     }
 
     async function submitForm(form, endpoint, successMsg) {
+        // Double-submit prevention
+        if (isSubmitting) return;
+
         const data = collectFormData(form);
 
-        // Client-side validation
+        // Client-side validation — check for empty form
         if (Object.keys(data).length === 0) {
             showToast('Please fill in at least one field.', 'error');
             return;
         }
 
+        // Client-side email format validation
+        if (data.email && !isValidEmail(data.email)) {
+            showToast('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        isSubmitting = true;
         setFormLoading(form, true);
 
         try {
@@ -164,6 +183,7 @@
             console.error('Form submission error:', err);
             showToast(err.message || 'Network error. Please try again.', 'error');
         } finally {
+            isSubmitting = false;
             setFormLoading(form, false);
         }
     }

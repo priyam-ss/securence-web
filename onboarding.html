@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SECURENCE — Register to access next-generation safety technology. Your safety, reimagined.">
+    <title>SECURENCE — Secure Entry</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <!-- Back to Home — disabled until form submitted -->
+            <span class="page-back-link ob-back-disabled" id="ob-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </span>
+            <span class="nav-logo ob-logo-static">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <div class="page-hero-glow page-hero-glow-1"></div>
+            <div class="page-hero-glow page-hero-glow-2"></div>
+            <div class="page-hero-glow page-hero-glow-3"></div>
+        </div>
+        <div class="page-hero-content" data-anim="fade-up">
+            <div class="page-hero-badge">
+                <span class="badge-dot"></span>
+                SECURE ENTRY
+            </div>
+            <h1 class="page-hero-title">
+                Access <span class="text-gradient">Protocol</span>
+            </h1>
+            <p class="page-hero-subtitle">
+                Complete verification to enter the SECURENCE ecosystem. Your data is protected under 256-bit encryption.
+            </p>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">REGISTER</div>
+                <h2 class="section-title">Tell Us About <span class="text-gradient">You</span></h2>
+            </div>
+
+            <div data-anim="fade-up">
+                <div class="form-container">
+                    <form id="onboarding-form" onsubmit="return false;">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-input" name="address" placeholder="Enter your full address" required>
+                        </div>
+
+                        <!-- Terms & Conditions -->
+                        <div class="form-group onboarding-terms-group">
+                            <label class="onboarding-terms-label" for="terms-checkbox">
+                                <input type="checkbox" id="terms-checkbox" class="onboarding-terms-input">
+                                <div class="onboarding-terms-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                                <span class="onboarding-terms-text">I agree to the <a href="#" class="onboarding-terms-link" data-legal="terms">Terms & Conditions</a> and <a href="#" class="onboarding-terms-link" data-legal="privacy">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg form-submit">
+                            <span>Initialize Access</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER — Legal links only -->
+    <footer class="page-footer ob-footer">
+        <div class="page-footer-glow"></div>
+        <div class="ob-footer-links">
+            <a href="#" class="ob-footer-link" data-legal="terms">Terms & Conditions</a>
+            <span class="ob-footer-sep">·</span>
+            <a href="#" class="ob-footer-link" data-legal="privacy">Privacy Policy</a>
+            <span class="ob-footer-sep">·</span>
+            <a href="disclaimer.html" class="ob-footer-link">Disclaimer</a>
+        </div>
+        <p>&copy; 2026 SECURENCE. All rights reserved.</p>
+    </footer>
+
+    <!-- ============================== -->
+    <!-- LEGAL POPUP -->
+    <!-- ============================== -->
+    <div class="ob-legal-overlay" id="ob-legal-overlay">
+        <div class="ob-legal-modal">
+            <div class="ob-legal-header">
+                <h3 class="ob-legal-title" id="ob-legal-title"></h3>
+                <button class="ob-legal-close" id="ob-legal-close" type="button">✕</button>
+            </div>
+            <div class="ob-legal-body" id="ob-legal-body"></div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- PROCESSING OVERLAY -->
+    <!-- ============================== -->
+    <div class="ob-process-overlay" id="ob-process-overlay">
+        <div class="ob-process-content">
+            <div class="loader-ring ob-proc-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="ob-proc-steps" id="ob-proc-steps"></div>
+        </div>
+    </div>
+
+    <script src="pages.js"></script>
+
+    <!-- Firebase SDK — Loads BEFORE onboarding.js -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js"></script>
+
+    <script src="onboarding.js"></script>
+
+</body>
+</html>
