@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support the SECURENCE mission — help us turn safety into reality for women everywhere.">
+    <title>SECURENCE — Support the Mission</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="onboarding-modal.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- PRELOADER -->
+    <!-- ============================== -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================== -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <div class="page-hero-glow page-hero-glow-1"></div>
+            <div class="page-hero-glow page-hero-glow-2"></div>
+            <div class="page-hero-glow page-hero-glow-3"></div>
+        </div>
+        <div class="page-hero-content" data-anim="fade-up">
+            <div class="page-hero-badge">
+                <span class="badge-dot"></span>
+                SUPPORT SECURENCE
+            </div>
+            <h1 class="page-hero-title">
+                Support the <span class="text-gradient">Mission</span>
+            </h1>
+            <p class="page-hero-subtitle">
+                Help us turn safety into reality. Every gesture, every share, every voice brings us closer to a world where no woman walks alone.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- EMOTIONAL STORY SECTION -->
+    <!-- ============================== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">WHY IT MATTERS</div>
+                <h2 class="section-title">Behind Every <span class="text-gradient">Statistic</span> Is a Story</h2>
+            </div>
+            <div class="emotional-block" data-anim="fade-up">
+                <p>
+                    Behind every headline about violence is a name. A daughter. A sister. A friend.
+                    <span class="highlight">We started SECURENCE because we were tired of reading those headlines.</span>
+                    Tired of hearing "stay safe" when the world does nothing to make that possible.
+                    This isn't just a device — it's a promise. A promise that technology can be a force for protection, not just profit.
+                    <span class="highlight">With your support, that promise becomes real.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- QR CODE SUPPORT SECTION -->
+    <!-- ============================== -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">CONTRIBUTE</div>
+                <h2 class="section-title">Scan to <span class="text-gradient">Support</span></h2>
+                <p class="section-desc">Every contribution, no matter how small, helps us move forward.</p>
+            </div>
+            <div data-anim="fade-up">
+                <div class="qr-container">
+                    <div class="qr-placeholder">
+                        <!-- Replace with actual QR code image: <img src="qr-code.png" alt="Scan to Support SECURENCE"> -->
+                        QR Code
+                    </div>
+                    <h3 class="qr-title">Scan to Support</h3>
+                    <p class="qr-subtitle">Every contribution helps us move forward. Your support powers the next step in safety innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- YOUR WORDS MATTER SECTION -->
+    <!-- ============================== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">YOUR VOICE</div>
+                <h2 class="section-title">Your Words <span class="text-gradient">Matter</span></h2>
+                <p class="section-desc">Share a message, suggestion, or simply a word of encouragement.</p>
+            </div>
+            <div class="message-container" data-anim="fade-up">
+                <form id="support-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <textarea class="form-textarea" name="message" placeholder="Write your message or suggestion..." rows="5"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- OTHER WAYS TO SUPPORT -->
+    <!-- ============================== -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">GET INVOLVED</div>
+                <h2 class="section-title">Other Ways to <span class="text-gradient">Support</span></h2>
+            </div>
+
+            <div class="page-cards-grid">
+                <div class="page-card" data-anim="fade-up" data-delay="0">
+                    <div class="page-card-glow"></div>
+                    <div class="page-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                        </svg>
+                    </div>
+                    <h3>Share This Project</h3>
+                    <p>Spread the word on social media, in your communities, and with people who care about safety. Every share amplifies our reach.</p>
+                </div>
+
+                <div class="page-card" data-anim="fade-up" data-delay="0.1">
+                    <div class="page-card-glow"></div>
+                    <div class="page-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Spread Awareness</h3>
+                    <p>Talk about women's safety in your circles. Start conversations that create change. Awareness is the first step to action.</p>
+                </div>
+
+                <div class="page-card" data-anim="fade-up" data-delay="0.2">
+                    <div class="page-card-glow"></div>
+                    <div class="page-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Connect Us with Mentors</h3>
+                    <p>Know industry professionals, engineers, or safety advocates? Connect us. Mentorship accelerates our mission exponentially.</p>
+                </div>
+
+                <div class="page-card" data-anim="fade-up" data-delay="0.3">
+                    <div class="page-card-glow"></div>
+                    <div class="page-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Collaborate</h3>
+                    <p>Whether you're a developer, designer, researcher, or activist — there's a place for you in this mission. Let's build together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CLOSING CTA -->
+    <!-- ============================== -->
+    <section class="section" style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));">
+        <div class="section-container">
+            <div class="page-quote" data-anim="fade-up">
+                <div class="section-divider"></div>
+                <p>"Even a small step from you can create a <span class="text-gradient">safer world.</span>"</p>
+            </div>
+            <div style="text-align: center;" data-anim="fade-up">
+                <a href="mission.html" class="btn btn-primary btn-lg">
+                    <span>Join the Mission</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer class="page-footer">
+        <div class="page-footer-glow"></div>
+        <p>&copy; 2026 <a href="index.html">SECURENCE</a>. All rights reserved. Built with purpose.</p>
+    </footer>
+
+    <!-- Page-specific JS -->
+    <script src="pages.js"></script>
+    <script src="form-handler.js"></script>
+
+    <!-- Onboarding Modal (shows if user hasn't registered) -->
+    <script src="onboarding-modal.js"></script>
+</body>
+</html>

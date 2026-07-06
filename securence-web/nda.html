@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SECURENCE NDA — Non-Disclosure Agreement governing confidential information related to the project.">
+    <title>SECURENCE — Non-Disclosure Agreement</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d946ef" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                            stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="legal-hero">
+        <div class="legal-hero-bg">
+            <div class="legal-hero-glow legal-hero-glow-1"></div>
+            <div class="legal-hero-glow legal-hero-glow-2"></div>
+            <div class="legal-hero-glow legal-hero-glow-3"></div>
+        </div>
+        <div class="legal-hero-content" data-anim="fade-up">
+            <div class="legal-hero-badge">
+                <span class="badge-dot"></span>
+                CONFIDENTIAL
+            </div>
+            <h1 class="legal-hero-title">
+                Non-Disclosure <span class="text-gradient">Agreement</span>
+            </h1>
+            <p class="legal-hero-subtitle">
+                This agreement governs the handling of confidential information shared within the SECURENCE ecosystem.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="legal-content-section">
+        <div class="legal-container">
+            <div class="legal-cards-grid">
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">01</div>
+                    <h3>Purpose of Agreement</h3>
+                    <p>This Non-Disclosure Agreement (NDA) is established to protect all confidential, proprietary, and
+                        non-public information related to the SECURENCE project. The purpose of this agreement is to
+                        ensure that any individual or entity receiving access to such information understands its
+                        sensitive nature and agrees to maintain strict confidentiality. This agreement governs the use,
+                        handling, and protection of all information shared for the purpose of discussion, evaluation,
+                        collaboration, or potential involvement in the project. By accessing or receiving any such
+                        information, the receiving party acknowledges and agrees to comply fully with the terms outlined
+                        herein.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">02</div>
+                    <h3>Parties Involved</h3>
+                    <p>This agreement is entered into between SECURENCE, an independent safety technology project
+                        represented by its founder, acting as the Disclosing Party, and any individual, collaborator,
+                        developer, advisor, organization, or entity receiving confidential information, acting as the
+                        Receiving Party. This agreement applies regardless of whether the relationship is formal or
+                        informal, paid or unpaid, temporary or ongoing, and includes all individuals who are granted
+                        access to project-related information in any capacity.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">03</div>
+                    <h3>Definition of Confidential Information</h3>
+                    <p>Confidential Information refers to all non-public, proprietary, and sensitive information related
+                        to SECURENCE that is disclosed directly or indirectly. This includes, but is not limited to,
+                        product concepts, system architecture, feature logic, hardware designs, software structures,
+                        algorithms, AI models, workflows, prototypes, visualizations, demonstrations, research data,
+                        development plans, strategic direction, documentation, and any future roadmap or innovation.
+                        Information disclosed through conversations, presentations, videos, images, code, or partial
+                        explanations shall also be considered confidential. Even if information is shared in incomplete
+                        or conceptual form, it remains protected under this agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">04</div>
+                    <h3>Nature of Disclosure</h3>
+                    <p>Confidential Information may be disclosed through various means, including verbal discussions,
+                        written documents, digital files, visual demonstrations, prototypes, simulations, or access to
+                        internal systems. The form of disclosure does not affect the confidential nature of the
+                        information. All such information is to be treated as strictly confidential regardless of
+                        whether it is explicitly labeled as such at the time of disclosure.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">05</div>
+                    <h3>Obligations of Receiving Party</h3>
+                    <p>The Receiving Party agrees to maintain strict confidentiality of all Confidential Information and
+                        to use such information solely for the purpose for which it has been disclosed. The Receiving
+                        Party must take all reasonable measures to prevent unauthorized access, disclosure, or misuse of
+                        the information. The information must not be copied, reproduced, stored, transmitted, or
+                        distributed in any form without prior written consent from SECURENCE. The Receiving Party is
+                        also responsible for ensuring that any individuals under their control or influence comply with
+                        the same level of confidentiality.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">06</div>
+                    <h3>Restrictions on Use</h3>
+                    <p>The Receiving Party is strictly prohibited from using the Confidential Information for any
+                        purpose other than the agreed scope of evaluation or collaboration. The information must not be
+                        used for personal gain, commercial advantage, or independent development of any system, product,
+                        or service. The Receiving Party may not modify, adapt, or build upon the disclosed information
+                        in any manner that results in a competing or derivative concept.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">08</div>
+                    <h3>Non-Disclosure Clause</h3>
+                    <p>The Receiving Party shall not disclose, share, publish, or communicate any Confidential
+                        Information to any third party without prior written authorization from SECURENCE. This includes
+                        disclosure to friends, colleagues, organizations, online platforms, or any external entity.
+                        Confidential Information must remain strictly restricted to the Receiving Party and only used
+                        within the permitted scope.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">09</div>
+                    <h3>Non-Circumvention Clause</h3>
+                    <p>The Receiving Party agrees not to bypass, avoid, or undermine the Disclosing Party in any way by
+                        using the Confidential Information independently or through third parties. The Receiving Party
+                        shall not approach investors, partners, manufacturers, or any external entities to replicate,
+                        develop, or commercialize the concept without direct involvement or consent from SECURENCE. Any
+                        attempt to indirectly benefit from the disclosed idea without authorization will be considered a
+                        violation of this agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">10</div>
+                    <h3>No Reverse Engineering or Replication</h3>
+                    <p>The Receiving Party is strictly prohibited from analyzing, deconstructing, reverse engineering,
+                        or attempting to replicate any part of the SECURENCE system, concept, or design. This includes
+                        both direct and indirect attempts to recreate the idea, whether in identical or modified form.
+                        Any effort to derive similar functionality, structure, or implementation based on the disclosed
+                        information is strictly forbidden.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">11</div>
+                    <h3>No Commercial Use</h3>
+                    <p>The Confidential Information must not be used for any commercial purpose. The Receiving Party
+                        shall not use the information to develop products, services, or business models that compete
+                        with or resemble SECURENCE. Any attempt to monetize or exploit the information, directly or
+                        indirectly, is a violation of this agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">12</div>
+                    <h3>Duration of Agreement</h3>
+                    <p>This agreement shall remain in effect for a minimum period of five (5) years from the date of
+                        disclosure. However, with respect to core intellectual concepts, system designs, and proprietary
+                        ideas, the obligation of confidentiality may continue indefinitely until such information
+                        becomes publicly available through authorized disclosure by SECURENCE.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">13</div>
+                    <h3>Breach and Consequences</h3>
+                    <p>Any breach of this agreement will be considered a serious violation and may result in immediate
+                        termination of access to the project and any associated opportunities. SECURENCE reserves the
+                        right to pursue legal remedies, including claims for damages, injunctions, or other actions
+                        permitted under applicable law. The Receiving Party agrees that unauthorized use or disclosure
+                        of Confidential Information may cause irreparable harm.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">14</div>
+                    <h3>Ownership of Information</h3>
+                    <p>All Confidential Information remains the exclusive property of SECURENCE. This agreement does not
+                        grant any ownership, license, or intellectual property rights to the Receiving Party. Access to
+                        information is granted solely for evaluation or collaboration purposes and does not imply any
+                        transfer of rights.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">15</div>
+                    <h3>Return or Destruction of Information</h3>
+                    <p>Upon request by SECURENCE or upon termination of involvement, the Receiving Party agrees to
+                        return or permanently delete all Confidential Information in their possession. This includes
+                        digital files, notes, copies, and any derived materials. The Receiving Party must confirm that
+                        no copies have been retained.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">16</div>
+                    <h3>No Partnership or Obligation</h3>
+                    <p>This agreement does not create any partnership, joint venture, employment relationship, or
+                        obligation for future collaboration between the parties. Disclosure of information does not
+                        guarantee any form of engagement, compensation, or agreement beyond confidentiality.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">17</div>
+                    <h3>Governing Understanding</h3>
+                    <p>This agreement represents the complete understanding between the parties regarding
+                        confidentiality and supersedes any prior discussions or informal agreements related to the same
+                        subject.</p>
+                </div>
+
+
+
+            </div>
+
+            <!-- Back to Top -->
+            <div class="legal-back-top" data-anim="fade-up">
+                <a href="#page-nav">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                    Back to Top
+                </a>
+            </div>
+            <!-- Download PDF -->
+            <div class="legal-download-wrap" data-anim="fade-up">
+                <a href="pdfs/4.pdf" class="legal-download-btn" id="legal-download-btn" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download as PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="legal-footer">
+        <div class="legal-footer-glow"></div>
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></span>
+                        <span class="logo-text">SECURENCE</span>
+                    </div>
+                    <p class="footer-tagline">Your Safety. Reimagined.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#future">Future Vision</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="support.html">Support Us</a>
+                        <a href="index.html#team">Our Team</a>
+                        <a href="inside.html">Inside SECURENCE</a>
+                        <a href="demo.html">Live Demos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.instagram.com/securenceofficial/">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="https://x.com/securenceofcl">Twitter / X</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="nda.html">NDA</a>
+                        <a href="founder-team-agreement.html">Founder & Team Agreement</a>
+                        <a href="product-notice.html">Product Page Notice</a>
+                        <a href="ip-protection.html">IP Protection Clause</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SECURENCE. All rights reserved. Built with purpose.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-and-conditions.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="legal.js"></script>
+</body>
+
+</html>

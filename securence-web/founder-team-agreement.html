@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SECURENCE Founder & Team Agreement — Governance framework for ownership, roles, and responsibilities within the team.">
+    <title>SECURENCE — Founder & Team Agreement</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d946ef" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                            stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="legal-hero">
+        <div class="legal-hero-bg">
+            <div class="legal-hero-glow legal-hero-glow-1"></div>
+            <div class="legal-hero-glow legal-hero-glow-2"></div>
+            <div class="legal-hero-glow legal-hero-glow-3"></div>
+        </div>
+        <div class="legal-hero-content" data-anim="fade-up">
+            <div class="legal-hero-badge">
+                <span class="badge-dot"></span>
+                INTERNAL
+            </div>
+            <h1 class="legal-hero-title">
+                Founder & Team <span class="text-gradient">Agreement</span>
+            </h1>
+            <p class="legal-hero-subtitle">
+                The governance framework defining ownership, responsibilities, and conduct for all members of the
+                SECURENCE team.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="legal-content-section">
+        <div class="legal-container">
+            <div class="legal-cards-grid">
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">01</div>
+                    <h3>Purpose of Agreement</h3>
+                    <p>This Founder & Team Agreement establishes the internal structure, ownership, responsibilities,
+                        and operational principles of the SECURENCE project. Its purpose is to ensure clarity among all
+                        contributors regarding their roles, rights, and limitations while protecting the integrity,
+                        vision, and continuity of the project. By participating in SECURENCE in any capacity, all
+                        members agree to abide by the terms outlined in this agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">02</div>
+                    <h3>Ownership & Control</h3>
+                    <p>SECURENCE is an independent project founded and owned by its creator. All intellectual property,
+                        concepts, systems, designs, and developments associated with SECURENCE remain under the sole
+                        ownership and authority of the founder. The founder retains full control over all strategic,
+                        technical, creative, and operational decisions. Participation by any individual or group does
+                        not alter, dilute, or transfer ownership unless explicitly defined through a separate written
+                        and legally binding agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">03</div>
+                    <h3>Nature of Participation</h3>
+                    <p>All individuals involved in SECURENCE are considered contributors or collaborators who
+                        voluntarily or mutually agree to support the development of the project. Participation may
+                        include involvement in hardware development, software engineering, research, design, strategy,
+                        or other supporting roles. Such participation does not automatically establish co-founder
+                        status, partnership, or any form of shared ownership unless formally declared and documented.
+                    </p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">04</div>
+                    <h3>Roles & Responsibilities</h3>
+                    <p>Each member may be assigned or may take on responsibilities based on their skills, availability,
+                        and project requirements. These responsibilities may evolve over time as the project develops.
+                        Members are expected to perform their roles with sincerity, professionalism, and commitment
+                        toward the shared vision of the project. However, the definition and modification of roles
+                        remain under the discretion of the founder to ensure alignment with project goals and efficiency
+                        in execution.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">05</div>
+                    <h3>No Ownership Rights</h3>
+                    <p>Participation in the project does not grant any individual ownership, equity, stake, or
+                        intellectual property rights in SECURENCE. All rights to the project, including current
+                        developments and future expansions, remain exclusively with the founder. Any expectation of
+                        ownership must be formally discussed and documented separately; otherwise, no implicit or
+                        assumed rights exist.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">06</div>
+                    <h3>Intellectual Property & Work Ownership</h3>
+                    <p>All contributions made by team members, including but not limited to code, designs, hardware
+                        concepts, ideas, research, documentation, and creative assets, become part of SECURENCE and are
+                        owned by the project. Contributors agree that any work created within the scope of the project
+                        is developed for SECURENCE and does not remain their personal intellectual property once
+                        integrated into the system. This ensures consistency, protection, and centralized control of all
+                        project assets.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Confidentiality</h3>
+                    <p>All members are required to maintain strict confidentiality regarding any internal information
+                        related to SECURENCE. This includes project ideas, technical details, system architecture,
+                        design elements, future plans, and any discussions that take place within the team. Members must
+                        not disclose such information to external parties without prior permission. This obligation
+                        continues even after a member leaves the project.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Non-Compete & Non-Replication Behavior</h3>
+                    <p>Team members agree not to use their involvement in SECURENCE to develop, participate in, or
+                        support any competing project or similar concept. They must not attempt to replicate, reuse, or
+                        adapt any part of the project’s idea, system, or structure for independent or external purposes.
+                        Any attempt to create a similar system based on knowledge gained through SECURENCE will be
+                        considered a violation of this agreement.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Use of Project Resources</h3>
+                    <p>Any tools, data, designs, or internal resources provided within the project are to be used
+                        strictly for SECURENCE-related purposes. Members are not permitted to use project resources for
+                        personal, external, or commercial activities. Unauthorized use, duplication, or distribution of
+                        such resources is strictly prohibited.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Communication & Conduct</h3>
+                    <p>All members are expected to maintain respectful, professional, and transparent communication
+                        within the team. Misconduct, including misuse of authority, disrespectful behavior, or actions
+                        that negatively impact team integrity, will not be tolerated. The project environment must
+                        remain focused, collaborative, and aligned with its mission.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Exit Clause</h3>
+                    <p>If a member chooses to leave the project or is no longer part of the team, they will not retain
+                        any ownership, rights, or claims over SECURENCE or its assets. All contributions made during
+                        their involvement remain part of the project. The departing member must also continue to respect
+                        confidentiality obligations and must not reuse or disclose any internal information.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Removal & Termination Rights</h3>
+                    <p>The founder reserves the right to remove or terminate any member’s involvement in the project at
+                        any time if deemed necessary. Reasons for removal may include inactivity, lack of contribution,
+                        misconduct, breach of confidentiality, violation of agreement terms, or misalignment with the
+                        project’s goals. This ensures that the integrity and progress of the project are maintained.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Future Agreements & Modifications</h3>
+                    <p>This agreement may be updated, modified, or expanded as the project evolves. Any significant
+                        changes may be communicated to team members. Continued participation in the project implies
+                        acceptance of updated terms.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>Acknowledgment & Acceptance</h3>
+                    <p>By participating in SECURENCE, all members acknowledge that they have read, understood, and
+                        agreed to the terms outlined in this agreement. This agreement serves as a foundational
+                        framework to protect the project, its vision, and its ownership while enabling collaborative
+                        development.</p>
+                </div>
+
+            </div>
+
+            <!-- Back to Top -->
+            <div class="legal-back-top" data-anim="fade-up">
+                <a href="#page-nav">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                    Back to Top
+                </a>
+            </div>
+            <!-- Download PDF -->
+            <div class="legal-download-wrap" data-anim="fade-up">
+                <a href="pdfs/6.pdf" class="legal-download-btn" id="legal-download-btn" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download as PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="legal-footer">
+        <div class="legal-footer-glow"></div>
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></span>
+                        <span class="logo-text">SECURENCE</span>
+                    </div>
+                    <p class="footer-tagline">Your Safety. Reimagined.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#future">Future Vision</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="support.html">Support Us</a>
+                        <a href="index.html#team">Our Team</a>
+                        <a href="inside.html">Inside SECURENCE</a>
+                        <a href="demo.html">Live Demos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.instagram.com/securenceofficial/">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter / X</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="nda.html">NDA</a>
+                        <a href="founder-team-agreement.html">Founder & Team Agreement</a>
+                        <a href="product-notice.html">Product Page Notice</a>
+                        <a href="ip-protection.html">IP Protection Clause</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SECURENCE. All rights reserved. Built with purpose.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-and-conditions.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="legal.js"></script>
+</body>
+
+</html>

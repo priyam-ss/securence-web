@@ -1,0 +1,455 @@
+/* ============================================
+   SECURENCE — Onboarding Modal System
+   Matches main site form/button/logo styles
+   ============================================ */
+
+/* ──── Page Lock State (bulletproof mobile scroll lock) ──── */
+body.ob-locked {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    touch-action: none !important;
+    -ms-touch-action: none !important;
+    overscroll-behavior: none !important;
+}
+
+body.ob-locked::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 12, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 10000;
+    pointer-events: none;
+}
+
+/* Disable ALL links */
+body.ob-locked a {
+    opacity: 0.2 !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* EXCEPTION: Legal links */
+body.ob-locked a[href="privacy-policy.html"],
+body.ob-locked a[href="terms-and-conditions.html"],
+body.ob-locked a[href="disclaimer.html"],
+body.ob-locked a[href="nda.html"],
+body.ob-locked a[href="founder-team-agreement.html"],
+body.ob-locked a[href="product-notice.html"],
+body.ob-locked a[href="ip-protection.html"] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* EXCEPTION: External / Connect links (social media) */
+body.ob-locked a[href^="https://"],
+body.ob-locked a[href^="http://"] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.ob-overlay a, .ob-overlay button {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* ──── Modal Overlay ──── */
+.ob-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 14px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+}
+
+.ob-overlay.active { opacity: 1; visibility: visible; }
+
+/* ──── Modal Card — Compact ──── */
+.ob-modal {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: var(--bg-card, rgba(10, 10, 28, 0.82));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle, rgba(255,255,255,0.04));
+    border-radius: 20px;
+    padding: 22px 24px 20px;
+    box-shadow:
+        0 0 50px rgba(168, 85, 247, 0.06),
+        0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px) scale(0.96);
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Modal scrollbar */
+.ob-modal::-webkit-scrollbar { width: 4px; }
+.ob-modal::-webkit-scrollbar-track { background: transparent; }
+.ob-modal::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.2); border-radius: 4px; }
+
+.ob-overlay.active .ob-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* ──── Header — Matches nav-logo style ──── */
+.ob-hdr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.ob-hdr-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.ob-hdr-logo .logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+}
+
+.ob-hdr-logo .logo-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ob-hdr-logo .logo-text {
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    color: var(--text-primary, #f0f0f5);
+}
+
+.ob-hdr-sub {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.65rem;
+    color: var(--text-muted, rgba(180, 180, 210, 0.4));
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.ob-hdr-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    padding: 3px 10px;
+    background: rgba(168, 85, 247, 0.06);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    border-radius: 100px;
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-size: 0.48rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: rgba(168, 85, 247, 0.6);
+}
+
+.ob-hdr-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #a855f7;
+    animation: obDot 2s ease-in-out infinite;
+}
+
+/* ──── Form — Uses same classes as pages.css ──── */
+.ob-form .form-group {
+    margin-bottom: 12px;
+}
+
+.ob-form .form-label {
+    display: block;
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-secondary, rgba(180, 180, 210, 0.6));
+    margin-bottom: 4px;
+}
+
+.ob-form .form-input,
+.ob-form .form-select {
+    width: 100%;
+    padding: 9px 12px;
+    background: rgba(15, 15, 35, 0.6);
+    border: 1px solid var(--border-subtle, rgba(255,255,255,0.04));
+    border-radius: 10px;
+    color: var(--text-primary, #f0f0f5);
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.8rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.ob-form .form-input::placeholder {
+    color: var(--text-muted, rgba(180, 180, 210, 0.3));
+}
+
+.ob-form .form-input:focus,
+.ob-form .form-select:focus {
+    border-color: var(--neon-purple, #a855f7);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+    background: rgba(15, 15, 35, 0.8);
+}
+
+.ob-form .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23a855f7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+}
+
+.ob-form .form-select option {
+    background: #0a0a1a;
+    color: var(--text-primary, #f0f0f5);
+}
+
+/* ──── Custom Checkbox ──── */
+.ob-terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ob-terms-row input[type="checkbox"] { display: none; }
+
+.ob-chk {
+    width: 20px; height: 20px; min-width: 20px;
+    border: 1.5px solid rgba(168, 85, 247, 0.25);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(15, 15, 35, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 1px;
+}
+
+.ob-chk svg {
+    width: 11px; height: 11px;
+    opacity: 0; transform: scale(0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #fff;
+}
+
+.ob-terms-row input:checked + .ob-chk {
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    border-color: transparent;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+
+.ob-terms-row input:checked + .ob-chk svg {
+    opacity: 1; transform: scale(1);
+}
+
+.ob-terms-text {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.72rem;
+    color: var(--text-muted, rgba(180, 180, 210, 0.4));
+    line-height: 1.5;
+}
+
+.ob-terms-link {
+    color: #a855f7 !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.ob-terms-link:hover { color: #c084fc !important; }
+
+/* ──── Submit Button — Uses .btn .btn-primary ──── */
+.ob-form .btn {
+    width: 100%;
+    margin-top: 2px;
+    padding: 11px 28px;
+    font-size: 0.85rem;
+    justify-content: center;
+}
+
+.ob-form .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.ob-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transform: scale(0);
+    animation: obRipple 0.6s ease-out forwards;
+    pointer-events: none;
+}
+
+/* ──── Processing Overlay ──── */
+.ob-proc {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(8, 8, 24, 0.96);
+    border-radius: 24px;
+    z-index: 5;
+    opacity: 0; visibility: hidden;
+    transition: all 0.5s ease;
+}
+.ob-proc.active { opacity: 1; visibility: visible; }
+
+.ob-proc-inner {
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Dual-ring spinner — exact match of #preloader .loader-ring */
+.ob-preloader-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.ob-preloader-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--neon-purple, #a855f7);
+    border-right-color: var(--neon-blue, #3b82f6);
+    animation: obPreloaderSpin 1s linear infinite;
+}
+
+.ob-preloader-ring-inner {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: var(--neon-pink, #ec4899);
+    border-left-color: var(--neon-cyan, #06b6d4);
+    animation: obPreloaderSpin 0.6s linear infinite reverse;
+}
+
+@keyframes obPreloaderSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Status text — matches .loader-text */
+.ob-preloader-text {
+    font-family: var(--font-display, 'Outfit', sans-serif);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-secondary, rgba(241, 245, 249, 0.6));
+    transition: color 0.4s ease, letter-spacing 0.4s ease;
+}
+
+/* Progress bar — matches .loader-progress */
+.ob-preloader-progress {
+    width: 200px;
+    height: 2px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.ob-preloader-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* ──── Toast ──── */
+.ob-toast {
+    position: fixed;
+    top: 20px; left: 50%;
+    transform: translateX(-50%) translateY(-16px);
+    z-index: 99999;
+    padding: 10px 20px;
+    background: rgba(10, 10, 28, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(168,85,247,0.18);
+    border-radius: 10px;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.76rem;
+    color: rgba(200,200,220,0.8);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    max-width: 90vw;
+    text-align: center;
+}
+.ob-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ──── Animations ──── */
+@keyframes obDot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+@keyframes obSpin { to { transform: rotate(360deg); } }
+@keyframes obPop  { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes obRipple { to { transform: scale(4); opacity: 0; } }
+
+/* ──── Responsive ──── */
+@media (max-width: 600px) {
+    .ob-overlay { padding: 16px 10px; align-items: flex-start; padding-top: 28px; }
+    .ob-modal { padding: 26px 20px 22px; border-radius: 20px; max-width: 100%; }
+    .ob-hdr-logo .logo-text { font-size: 1.1rem; }
+    .ob-hdr-sub { font-size: 0.65rem; }
+    .ob-hdr-badge { font-size: 0.48rem; padding: 3px 10px; }
+    .ob-hdr { margin-bottom: 18px; }
+    .ob-form .form-group { margin-bottom: 14px; }
+    .ob-form .form-label { font-size: 0.7rem; margin-bottom: 5px; }
+    .ob-form .form-input,
+    .ob-form .form-select { padding: 11px 14px; font-size: 0.82rem; border-radius: 10px; }
+    .ob-form .btn { padding: 12px 24px; font-size: 0.84rem; }
+    .ob-terms-text { font-size: 0.68rem; }
+    .ob-proc-inner { padding: 24px 16px; }
+    .ob-preloader-ring { width: 48px; height: 48px; }
+    .ob-preloader-text { font-size: 0.75rem; letter-spacing: 2px; }
+    .ob-preloader-progress { width: 160px; }
+}
+
+@media (max-width: 380px) {
+    .ob-modal { padding: 22px 16px 18px; }
+    .ob-hdr-logo .logo-text { font-size: 1rem; }
+    .ob-form .form-group { margin-bottom: 12px; }
+    .ob-form .form-input { padding: 10px 12px; font-size: 0.8rem; }
+}

@@ -1,0 +1,230 @@
+/* ============================================
+   SECURENCE — Disclaimer Overlay System
+   Premium system-level confirmation dialog
+   ============================================ */
+
+/* ──────────── Overlay Background ──────────── */
+.disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.disclaimer-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.disclaimer-overlay.exiting {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* ──────────── Card ──────────── */
+.disclaimer-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: rgba(20, 20, 30, 0.8);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 14px;
+    padding: 26px 26px 22px;
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, 0.08),
+        0 16px 48px rgba(0, 0, 0, 0.4);
+
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.disclaimer-overlay.visible .disclaimer-card {
+    transform: scale(1);
+}
+
+.disclaimer-overlay.exiting .disclaimer-card {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+/* Glow border */
+.disclaimer-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 15px;
+    background: linear-gradient(135deg,
+        rgba(168, 85, 247, 0.1),
+        rgba(59, 130, 246, 0.06),
+        rgba(236, 72, 153, 0.05));
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* ──────────── Title ──────────── */
+.disclaimer-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ──────────── Body ──────────── */
+.disclaimer-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.65;
+    color: rgba(241, 245, 249, 0.7);
+    margin-bottom: 20px;
+}
+
+.disclaimer-body p {
+    margin: 0 0 8px 0;
+}
+
+.disclaimer-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* ──────────── Button ──────────── */
+.disclaimer-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.disclaimer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899);
+    color: white;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+    transition: all 0.35s ease;
+
+    opacity: 0.3;
+    pointer-events: none;
+    transform: translateY(3px);
+}
+
+.disclaimer-btn.enabled {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.disclaimer-btn.enabled:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.45);
+}
+
+.disclaimer-btn.enabled:active {
+    transform: translateY(0);
+}
+
+/* ──────────── Responsive ──────────── */
+@media (max-width: 768px) {
+    .disclaimer-card {
+        max-width: 380px;
+        padding: 22px 20px 18px;
+    }
+
+    .disclaimer-title {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+
+    .disclaimer-body {
+        font-size: 0.72rem;
+        margin-bottom: 16px;
+    }
+
+    .disclaimer-btn {
+        padding: 9px 20px;
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .disclaimer-overlay {
+        padding: 12px;
+    }
+
+    .disclaimer-card {
+        max-width: 100%;
+        padding: 18px 16px 16px;
+        border-radius: 12px;
+    }
+
+    .disclaimer-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .disclaimer-body {
+        font-size: 0.68rem;
+        line-height: 1.6;
+        margin-bottom: 14px;
+    }
+
+    .disclaimer-body p {
+        margin-bottom: 6px;
+    }
+
+    .disclaimer-btn {
+        padding: 9px 18px;
+        font-size: 0.75rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .disclaimer-overlay {
+        padding: 8px;
+    }
+
+    .disclaimer-card {
+        padding: 16px 14px 14px;
+    }
+
+    .disclaimer-title {
+        font-size: 0.88rem;
+    }
+
+    .disclaimer-body {
+        font-size: 0.65rem;
+        line-height: 1.55;
+        margin-bottom: 12px;
+    }
+
+    .disclaimer-btn {
+        padding: 8px 16px;
+        font-size: 0.72rem;
+    }
+}

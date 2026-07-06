@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="SECURENCE AI Threat Detection — Predictive safety analytics with real-time environmental scanning and anomaly detection.">
+    <title>SECURENCE — AI Threat Detection</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/ai-advanced.css">
+    <link rel="stylesheet" href="css/floating-panels.css">
+    <link rel="stylesheet" href="css/disclaimer.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="viz-preloader">
+        <div class="viz-loader-ring"><div class="viz-loader-ring-inner"></div></div>
+        <p class="viz-loader-text">Initializing AI Detection Engine</p>
+        <div class="viz-loader-progress"><div class="viz-loader-progress-bar" id="viz-loader-bar"></div></div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- MAIN APP CONTAINER -->
+    <!-- ============================== -->
+    <div class="ai-app" id="ai-app">
+
+        <!-- ============================== -->
+        <!-- NAVIGATION (matches hub/site) -->
+        <!-- ============================== -->
+        <nav class="viz-nav" id="viz-nav">
+            <div class="viz-nav-container">
+                <a href="index.html" class="viz-nav-back" id="viz-nav-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back to Hub
+                </a>
+                <a href="../index.html" class="viz-nav-logo" id="viz-nav-logo">
+                    <span class="viz-logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                    <span class="viz-page-title">AI THREAT</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ============================== -->
+        <!-- MAIN SCENE AREA -->
+        <!-- ============================== -->
+        <div class="ai-scene" id="ai-scene">
+            <div class="ai-scene-inner" id="ai-scene-inner">
+
+                <!-- Grid Background -->
+                <div class="ai-grid-bg">
+                    <div class="ai-grid-lines"></div>
+                    <div class="ai-grid-lines-fine"></div>
+                </div>
+
+                <!-- Detection Grid Overlay -->
+                <div class="ai-detect-grid" id="ai-detect-grid"></div>
+
+                <!-- Scan Line -->
+                <div class="ai-scanline" id="ai-scanline"></div>
+                <div class="ai-scanline-v" id="ai-scanline-v"></div>
+
+                <!-- Ambient Glow -->
+                <div class="ai-ambient-glow" id="ai-ambient-glow"></div>
+
+                <!-- Glitch Overlay -->
+                <div class="ai-glitch-overlay" id="ai-glitch-overlay"></div>
+
+                <!-- ============================== -->
+                <!-- USER FIGURE -->
+                <!-- ============================== -->
+                <div class="ai-figure" id="ai-figure">
+                    <div class="ai-figure-body">
+                        <div class="ai-figure-head"></div>
+                        <div class="ai-figure-neck"></div>
+                        <div class="ai-figure-torso"></div>
+                        <div class="ai-figure-arms">
+                            <div class="ai-figure-arm ai-arm-left"></div>
+                            <div class="ai-figure-arm ai-arm-right"></div>
+                        </div>
+                        <div class="ai-figure-legs">
+                            <div class="ai-figure-leg ai-leg-left"></div>
+                            <div class="ai-figure-leg ai-leg-right"></div>
+                        </div>
+                    </div>
+                    <div class="ai-figure-indicator">
+                        <div class="ai-figure-dot" id="ai-figure-dot"></div>
+                        <div class="ai-figure-ping" id="ai-figure-ping"></div>
+                    </div>
+                    <span class="ai-figure-tag">USER</span>
+                </div>
+
+                <!-- ============================== -->
+                <!-- SUSPECT FIGURE -->
+                <!-- ============================== -->
+                <div class="ai-suspect" id="ai-suspect">
+                    <div class="ai-suspect-body">
+                        <div class="ai-suspect-head"></div>
+                        <div class="ai-suspect-neck"></div>
+                        <div class="ai-suspect-torso"></div>
+                        <div class="ai-suspect-legs">
+                            <div class="ai-suspect-leg"></div>
+                            <div class="ai-suspect-leg"></div>
+                        </div>
+                    </div>
+                    <span class="ai-suspect-tag" id="ai-suspect-tag">UNKNOWN</span>
+                </div>
+
+                <!-- ============================== -->
+                <!-- AI DETECTION BOX -->
+                <!-- ============================== -->
+                <div class="ai-detect-box" id="ai-detect-box">
+                    <div class="ai-detect-corner ai-dc-tl"></div>
+                    <div class="ai-detect-corner ai-dc-tr"></div>
+                    <div class="ai-detect-corner ai-dc-bl"></div>
+                    <div class="ai-detect-corner ai-dc-br"></div>
+                    <span class="ai-detect-label" id="ai-detect-label">THREAT DETECTED</span>
+                </div>
+
+                <!-- ============================== -->
+                <!-- WARNING ZONES -->
+                <!-- ============================== -->
+                <div class="ai-warning-zone" id="ai-warning-zone-1"></div>
+                <div class="ai-warning-zone" id="ai-warning-zone-2"></div>
+
+                <!-- ============================== -->
+                <!-- ALERT FLASH -->
+                <!-- ============================== -->
+                <div class="ai-alert-flash" id="ai-alert-flash"></div>
+
+                <!-- ============================== -->
+                <!-- POPUP CONTAINER -->
+                <!-- ============================== -->
+                <div class="ai-popup-container" id="ai-popups"></div>
+
+            </div>
+
+            <!-- ============================== -->
+            <!-- LEFT PANEL: SCAN DATA -->
+            <!-- ============================== -->
+            <div class="ai-panel ai-panel-left" id="ai-panel-left">
+                <div class="ai-panel-header">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                    </svg>
+                    SCAN DATA
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">SCAN AREA</span>
+                    <span class="ai-panel-value" id="ai-scan-area">250m²</span>
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">ENTITIES</span>
+                    <span class="ai-panel-value" id="ai-entities">0</span>
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">FRAME RATE</span>
+                    <span class="ai-panel-value" id="ai-fps">30 fps</span>
+                </div>
+                <div class="ai-panel-divider"></div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">ANOMALIES</span>
+                    <span class="ai-panel-value" id="ai-anomalies">0</span>
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">SCAN MODE</span>
+                    <span class="ai-panel-value" id="ai-scan-mode">PASSIVE</span>
+                </div>
+                <div class="ai-panel-divider"></div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">ENV RISK</span>
+                    <span class="ai-panel-value" id="ai-env-risk">LOW</span>
+                </div>
+            </div>
+
+            <!-- ============================== -->
+            <!-- RIGHT PANEL: AI ANALYSIS -->
+            <!-- ============================== -->
+            <div class="ai-panel ai-panel-right" id="ai-panel-right">
+                <div class="ai-panel-header">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1v3h-1.27A7 7 0 0112 22a7 7 0 01-7.73-3H3v-3h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                    </svg>
+                    AI ANALYSIS
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">THREAT %</span>
+                    <span class="ai-panel-value" id="ai-threat-pct">0%</span>
+                </div>
+                <div class="ai-panel-progress">
+                    <div class="ai-panel-progress-bar" id="ai-threat-bar"></div>
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">PATTERN</span>
+                    <span class="ai-panel-value" id="ai-pattern">NORMAL</span>
+                </div>
+                <div class="ai-panel-divider"></div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">AI CONF</span>
+                    <span class="ai-panel-value" id="ai-confidence">--</span>
+                </div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">DECISION</span>
+                    <span class="ai-panel-value" id="ai-decision">STANDBY</span>
+                </div>
+                <div class="ai-panel-divider"></div>
+                <div class="ai-panel-row">
+                    <span class="ai-panel-label">PREDICTION</span>
+                    <span class="ai-panel-value" id="ai-prediction">SAFE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- BOTTOM CONTROL PANEL -->
+        <!-- ============================== -->
+        <div class="ai-bottom" id="ai-bottom">
+            <div class="ai-bottom-left">
+                <div class="ai-timeline-indicator">
+                    <div class="ai-timeline-track">
+                        <div class="ai-timeline-fill" id="ai-timeline-fill"></div>
+                    </div>
+                    <span class="ai-timeline-label" id="ai-timeline-label">PHASE: STANDBY</span>
+                </div>
+            </div>
+            <div class="ai-bottom-center">
+                <button class="ai-start-btn" id="btn-start">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6,3 20,12 6,21"/></svg>
+                    Initialize Scan
+                </button>
+            </div>
+            <div class="ai-bottom-right">
+                <div class="ai-alert-status" id="ai-alert-status">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span id="ai-alert-label">ALERT: INACTIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- FLOATING STATUS BOX -->
+        <!-- ============================== -->
+        <div class="fp-status-box" id="fp-status-box">
+            <div class="fp-status-row">
+                <div class="ai-neural-indicator" id="ai-neural">
+                    <div class="ai-neural-icon">
+                        <div class="ai-neural-dot"></div>
+                        <div class="ai-neural-ring"></div>
+                    </div>
+                    <span class="ai-neural-label" id="ai-neural-label">NEURAL NET ACTIVE</span>
+                </div>
+            </div>
+            <div class="fp-status-row">
+                <div class="ai-mode-badge" id="ai-mode-badge">
+                    <span class="ai-mode-dot"></span>
+                    <span id="ai-mode-text">SCANNING</span>
+                </div>
+            </div>
+            <div class="fp-status-row">
+                <span class="fp-status-clock" id="ai-system-clock">SYS --:--:--</span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="js/engine.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/ai-advanced.js"></script>
+    <script src="js/floating-panels.js"></script>
+</body>
+</html>

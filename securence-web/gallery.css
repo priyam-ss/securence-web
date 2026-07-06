@@ -1,0 +1,440 @@
+/* ============================================
+   SECURENCE — Gallery & Media Pages
+   Shared styles for inside.html & demo.html
+   Extends styles.css + pages.css design system
+   ============================================ */
+
+/* ──────────── Gallery Section ──────────── */
+.gallery-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.gallery-section:nth-child(odd) {
+    background: var(--bg-secondary);
+}
+
+.gallery-section:nth-child(even) {
+    background: var(--bg-primary);
+}
+
+.gallery-section-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.gallery-section-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.2;
+}
+
+.gallery-section-glow-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(168, 85, 247, 0.1);
+    top: -100px;
+    right: -100px;
+    animation: glowFloat1 8s ease-in-out infinite;
+}
+
+.gallery-section-glow-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(59, 130, 246, 0.08);
+    bottom: -80px;
+    left: -80px;
+    animation: glowFloat2 10s ease-in-out infinite;
+}
+
+/* ──────────── Section Intro ──────────── */
+.gallery-intro {
+    margin-bottom: 48px;
+}
+
+.gallery-intro .section-desc {
+    max-width: 700px;
+}
+
+/* ──────────── Prototype / Event Badge ──────────── */
+.gallery-phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-purple);
+    margin-bottom: 16px;
+}
+
+.gallery-phase-badge.badge-cyan {
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.2);
+    color: var(--neon-cyan);
+}
+
+.gallery-phase-badge.badge-green {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.2);
+    color: var(--neon-green);
+}
+
+.gallery-phase-badge.badge-pink {
+    background: rgba(236, 72, 153, 0.08);
+    border-color: rgba(236, 72, 153, 0.2);
+    color: var(--neon-pink);
+}
+
+/* Section title for gallery sections */
+.gallery-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.gallery-section-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+/* ──────────── Media Grid ──────────── */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ──────────── Media Card — Fixed Size Thumbnails ──────────── */
+.media-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.media-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 16px 50px rgba(168, 85, 247, 0.12);
+}
+
+.media-card-inner {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+/* Images & videos fill the fixed-size card as thumbnails */
+.media-card img,
+.media-card video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out-expo);
+}
+
+.media-card:hover img,
+.media-card:hover video {
+    transform: scale(1.06);
+}
+
+/* Expand overlay icon — appears on hover */
+.media-card-expand {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(5, 5, 16, 0.6);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.35s var(--ease-out-expo);
+    pointer-events: none;
+    z-index: 3;
+    backdrop-filter: blur(6px);
+}
+
+.media-card-expand svg {
+    color: var(--neon-purple);
+}
+
+.media-card:hover .media-card-expand {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Video play indicator */
+.media-card-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    pointer-events: none;
+    transition: all 0.4s var(--ease-out-expo);
+    z-index: 2;
+}
+
+.media-card:hover .media-card-play {
+    background: rgba(168, 85, 247, 0.25);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.media-card-play svg {
+    margin-left: 3px; /* optical centering */
+    color: var(--neon-purple);
+}
+
+/* Card label overlay */
+.media-card-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(5, 5, 16, 0.85), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.media-card-label span {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+}
+
+/* Placeholder state for empty media cards */
+.media-card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(145deg, #0a0a20, #0e0e2a);
+    color: var(--text-muted);
+}
+
+.media-card-placeholder svg {
+    opacity: 0.3;
+}
+
+.media-card-placeholder span {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.4;
+}
+
+/* ──────────── Modal Overlay ──────────── */
+.media-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(5, 5, 16, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.media-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.media-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transform: scale(0.92);
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.media-modal.active .media-modal-content {
+    transform: scale(1);
+}
+
+.media-modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    object-fit: contain;
+}
+
+.media-modal-content video {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    background: #000;
+}
+
+/* Close button */
+.media-modal-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(15, 15, 35, 0.8);
+    border: 1px solid var(--border-glow);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+.media-modal-close:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Fullscreen button for video */
+.media-modal-fullscreen {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border: 1px solid var(--border-glow);
+    background: rgba(168, 85, 247, 0.08);
+    color: var(--neon-purple);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.media-modal-fullscreen:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+/* ──────────── Empty State Card ──────────── */
+.media-coming-soon {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 24px;
+    background: var(--gradient-card);
+    border: 1px dashed rgba(168, 85, 247, 0.2);
+    border-radius: 20px;
+}
+
+.media-coming-soon p {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ──────────── Responsive ──────────── */
+@media (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .media-card-inner {
+        height: 220px;
+    }
+
+    .media-modal {
+        padding: 20px;
+    }
+
+    .media-modal-close {
+        top: -12px;
+        right: -8px;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .gallery-section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .media-card-inner {
+        height: 200px;
+    }
+
+    .media-modal-content img,
+    .media-modal-content video {
+        border-radius: 12px;
+    }
+
+    .gallery-section-title {
+        font-size: 1.3rem;
+    }
+}

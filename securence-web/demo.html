@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SECURENCE Live Demonstrations — Watch real-world exhibitions, tech fests, and demo days where SECURENCE proved its mission.">
+    <title>SECURENCE — Live Demonstrations</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="onboarding-modal.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- PRELOADER -->
+    <!-- ============================== -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================== -->
+    <section class="page-hero">
+        <div class="page-hero-bg">
+            <div class="page-hero-glow page-hero-glow-1"></div>
+            <div class="page-hero-glow page-hero-glow-2"></div>
+            <div class="page-hero-glow page-hero-glow-3"></div>
+        </div>
+        <div class="page-hero-content" data-anim="fade-up">
+            <div class="page-hero-badge">
+                <span class="badge-dot"></span>
+                LIVE DEMONSTRATIONS
+            </div>
+            <h1 class="page-hero-title">
+                Proven in the <span class="text-gradient">Real World</span>
+            </h1>
+            <p class="page-hero-subtitle">
+                From school exhibitions to tech fests — SECURENCE has been demonstrated, tested, and validated in front of real audiences. Here's the proof.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- EVENT 1: SCHOOL EXHIBITION -->
+    <!-- ============================== -->
+    <section class="section gallery-section" style="background: var(--bg-secondary);">
+        <div class="gallery-section-bg">
+            <div class="gallery-section-glow gallery-section-glow-1"></div>
+        </div>
+        <div class="section-container">
+            <div class="gallery-intro" data-anim="fade-up">
+                <div class="gallery-phase-badge">EVENT 01</div>
+                <h2 class="gallery-section-title">School <span class="text-gradient">Exhibition</span></h2>
+                <p class="gallery-section-desc">Where it all began. The first public showcase of SECURENCE — presenting our vision to teachers, students, and judges who believed in the mission from day one.</p>
+            </div>
+
+            <div class="media-grid">
+                <!-- 
+                    ADD YOUR IMAGES / VIDEOS HERE
+                    Copy a media-card block and replace the placeholder with:
+                    
+                    For IMAGE:
+                    <img src="path/to/image.jpg" alt="Description">
+                    
+                    For VIDEO:
+                    <video src="path/to/video.mp4" muted preload="metadata"></video>
+                    <div class="media-card-play">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="6,3 20,12 6,21"/>
+                        </svg>
+                    </div>
+                -->
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Exhibition Setup</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Live Presentation</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Audience Reaction</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- EVENT 2: TECH FEST DEMO -->
+    <!-- ============================== -->
+    <section class="section gallery-section" style="background: var(--bg-primary);">
+        <div class="gallery-section-bg">
+            <div class="gallery-section-glow gallery-section-glow-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="gallery-intro" data-anim="fade-up">
+                <div class="gallery-phase-badge badge-cyan">EVENT 02</div>
+                <h2 class="gallery-section-title">Tech Fest <span class="text-gradient">Demo</span></h2>
+                <p class="gallery-section-desc">SECURENCE on the big stage. Competing against dozens of innovations, demonstrating real-time SOS activation, GPS tracking, and defense systems to industry experts.</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Tech Fest Booth</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Device Demo</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="23 7 16 12 23 17 23 7"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                            <span>Add Video</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Live SOS Test</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Judges' Feedback</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- EVENT 3: LIVE DEMONSTRATION DAY -->
+    <!-- ============================== -->
+    <section class="section gallery-section" style="background: var(--bg-secondary);">
+        <div class="gallery-section-bg">
+            <div class="gallery-section-glow gallery-section-glow-1"></div>
+            <div class="gallery-section-glow gallery-section-glow-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="gallery-intro" data-anim="fade-up">
+                <div class="gallery-phase-badge badge-pink">EVENT 03</div>
+                <h2 class="gallery-section-title">Live Demonstration <span class="text-gradient">Day</span></h2>
+                <p class="gallery-section-desc">A dedicated event to showcase SECURENCE's capabilities in action — real SOS calls, GPS tracking on maps, defense system activation, and voice-triggered protocols.</p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Demo Day Setup</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="23 7 16 12 23 17 23 7"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                            <span>Add Video</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Full Demo Video</span></div>
+                </div>
+
+                <div class="media-card" data-anim="fade-up">
+                    <div class="media-card-inner">
+                        <div class="media-card-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Add Image</span>
+                        </div>
+                    </div>
+                    <div class="media-card-label"><span>Team at Demo Day</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CLOSING CTA -->
+    <!-- ============================== -->
+    <section class="section" style="background: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary));">
+        <div class="section-container">
+            <div class="page-quote" data-anim="fade-up">
+                <div class="section-divider"></div>
+                <p>"SECURENCE isn't just a concept — it's been <span class="text-gradient">proven in the real world.</span>"</p>
+            </div>
+            <div style="text-align: center;" data-anim="fade-up">
+                <a href="inside.html" class="btn btn-primary btn-lg" style="margin-right: 12px;">
+                    <span>Inside SECURENCE</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                </a>
+                <a href="support.html" class="btn btn-primary btn-lg">
+                    <span>Support the Project</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer class="page-footer">
+        <div class="page-footer-glow"></div>
+        <p>&copy; 2026 <a href="index.html">SECURENCE</a>. All rights reserved. Built with purpose.</p>
+    </footer>
+
+    <!-- Gallery JS -->
+    <script src="gallery.js"></script>
+
+    <!-- Firebase SDK — Loads BEFORE onboarding modal -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js"></script>
+
+    <!-- Onboarding Modal (shows if user hasn't registered) -->
+    <script src="onboarding-modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Meet the minds behind SECURENCE — the engineers, strategists, and visionaries building the future of personal safety technology.">
+    <meta name="keywords" content="SECURENCE team, safety technology team, women safety innovators">
+    <meta name="author" content="Team SECURENCE">
+    <title>SECURENCE — The Core Team</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="team.css">
+    <link rel="stylesheet" href="onboarding-modal.css">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!-- PRELOADER -->
+    <!-- ============================== -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d946ef" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                            stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================== -->
+    <section class="team-page-hero">
+        <div class="team-hero-bg">
+            <div class="team-hero-grid"></div>
+            <div class="team-hero-glow team-hero-glow-1"></div>
+            <div class="team-hero-glow team-hero-glow-2"></div>
+            <div class="team-hero-glow team-hero-glow-3"></div>
+            <div class="team-hero-particles">
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+                <div class="team-float-particle"></div>
+            </div>
+        </div>
+
+        <div class="team-hero-content">
+            <div class="team-hero-label">
+                <span class="badge-dot"></span>
+                THE CORE TEAM
+            </div>
+            <h1 class="team-hero-title">
+                The Minds Behind <span class="text-gradient">SECURENCE</span>
+            </h1>
+            <p class="team-hero-desc">
+                A collective of engineers, strategists, and visionaries united by a single mission — to ensure that no
+                one walks alone in a world that demands better protection.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- TEAM MEMBERS SECTION -->
+    <!-- ============================== -->
+    <section class="team-members-section">
+        <div class="team-section-bg">
+            <div class="team-section-glow team-section-glow-1"></div>
+            <div class="team-section-glow team-section-glow-2"></div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-header" data-anim="fade-up">
+                <div class="section-label">THE INNOVATORS</div>
+                <h2 class="section-title">Built by <span class="text-gradient">Visionaries</span></h2>
+                <p class="section-desc">Not just students. Engineers, dreamers, and fighters for a safer world.</p>
+            </div>
+
+            <div class="team-members-grid">
+
+                <!-- ════════════════════════════════════
+                     FOUNDER CARD
+                     ════════════════════════════════════ -->
+                <div class="tm-card tm-founder">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/founder.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <!-- Replace src with actual photo -->
+                            <img src="assets/team/pp1.jpeg" alt="Anindya">
+                        </div>
+                    </div>
+                    <div class="tm-founder-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        FOUNDER
+                    </div>
+                    <h3 class="tm-name">Anindya</h3>
+                    <div class="tm-division">Leadership</div>
+                    <p class="tm-role">Lead Innovator & Architect</p>
+                    <p class="tm-desc">The mind behind the machine. Transforming the concept of personal safety from
+                        theory into technology that saves lives.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ════════════════════════════════════
+                     TEAM MEMBER CARDS
+                     ════════════════════════════════════
+                     
+                     HOW TO ADD A NEW MEMBER:
+                     ─────────────────────────
+                     1. Copy one <div class="tm-card"> block below
+                     2. Paste it after the last card
+                     3. Update: name, division, role, description
+                     4. Put profile image in assets/team/ folder
+                     5. Set <img src="assets/team/name.jpg"> inside tm-avatar-img
+                     6. Set data-fullimg="assets/team/name.jpg" on tm-avatar div
+                     7. Grid auto-adjusts — no CSS changes needed
+                     
+                     Click on any profile picture to view full size!
+                     
+                     ════════════════════════════════════ -->
+
+                <!-- Team Member 1 -->
+                <div class="tm-card">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/member1.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <img src="assets/team/pp1.jpeg" alt="Team Member">
+                        </div>
+                    </div>
+                    <h3 class="tm-name">Team Member</h3>
+                    <div class="tm-division">Engineering</div>
+                    <p class="tm-role">Hardware Engineer</p>
+                    <p class="tm-desc">Designing the physical shield. Engineering precision hardware that bridges the
+                        gap between safety and wearability.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="tm-card">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/member2.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <img src="assets/team/pp3.jpeg" alt="Team Member">
+                        </div>
+                    </div>
+                    <h3 class="tm-name">Team Member</h3>
+                    <div class="tm-division">Software</div>
+                    <p class="tm-role">Software Architect</p>
+                    <p class="tm-desc">Coding the intelligence. Building the AI and software backbone that makes
+                        SECURENCE smarter with every interaction.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="tm-card">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/member3.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <img src="assets/team/pp5.jpeg" alt="Team Member">
+                        </div>
+                    </div>
+                    <h3 class="tm-name">Team Member</h3>
+                    <div class="tm-division">Strategy</div>
+                    <p class="tm-role">Research & Strategy</p>
+                    <p class="tm-desc">Shaping the mission. Researching threats, mapping solutions, and ensuring
+                        SECURENCE stays ahead of every danger.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="tm-card">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/member1.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <img src="assets/team/pp2.jpeg" alt="Team Member">
+                        </div>
+                    </div>
+                    <h3 class="tm-name">Team Member</h3>
+                    <div class="tm-division">Engineering</div>
+                    <p class="tm-role">Hardware Engineer</p>
+                    <p class="tm-desc">Designing the physical shield. Engineering precision hardware that bridges the
+                        gap between safety and wearability.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="tm-card">
+                    <div class="tm-card-glow"></div>
+                    <div class="tm-avatar" data-fullimg="assets/team/member1.jpg">
+                        <div class="tm-avatar-ring"></div>
+                        <div class="tm-avatar-img">
+                            <img src="assets/team/pp4.jpeg" alt="Team Member">
+                        </div>
+                    </div>
+                    <h3 class="tm-name">Team Member</h3>
+                    <div class="tm-division">Engineering</div>
+                    <p class="tm-role">Hardware Engineer</p>
+                    <p class="tm-desc">Designing the physical shield. Engineering precision hardware that bridges the
+                        gap between safety and wearability.</p>
+                    <div class="tm-socials">
+                        <a href="#" class="tm-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="#" class="tm-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- PROFILE LIGHTBOX MODAL -->
+    <!-- ============================== -->
+    <div class="tm-lightbox" id="tm-lightbox">
+        <div class="tm-lightbox-overlay"></div>
+        <div class="tm-lightbox-content">
+            <button class="tm-lightbox-close" id="tm-lightbox-close" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <img src="" alt="Team member profile" id="tm-lightbox-img">
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- JOIN CTA SECTION -->
+    <!-- ============================== -->
+    <section class="team-join-section">
+        <div class="section-container">
+            <div class="team-join-content" data-anim="fade-up">
+                <div class="team-join-divider"></div>
+                <p class="team-join-quote">
+                    "Behind every breakthrough is a team that refused to <span class="text-gradient">accept the status
+                        quo.</span>"
+                </p>
+                <div class="team-join-buttons">
+                    <a href="mission.html" class="btn btn-primary btn-lg" id="btn-join-mission">
+                        <span>Join the Mission</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="team-join.html" class="btn btn-primary btn-lg" id="btn-build-with-us">
+                        <span>Build With Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer class="footer-section">
+        <div class="footer-glow"></div>
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad-ft" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad-ft)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad-ft)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></span>
+                        <span class="logo-text">SECURENCE</span>
+                    </div>
+                    <p class="footer-tagline">Your Safety. Reimagined.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#future">Future Vision</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="support.html">Support Us</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="inside.html">Inside SECURENCE</a>
+                        <a href="demo.html">Live Demos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.instagram.com/securenceofficial/">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="https://x.com/securenceofcl">Twitter / X</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="nda.html">NDA</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SECURENCE. All rights reserved. Built with purpose.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-and-conditions.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Page JS -->
+    <script src="team.js"></script>
+
+    <!-- Firebase SDK — Loads BEFORE onboarding modal -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js"></script>
+
+    <!-- Onboarding Modal -->
+    <script src="onboarding-modal.js"></script>
+</body>
+
+</html>

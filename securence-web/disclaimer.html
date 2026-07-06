@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SECURENCE Disclaimer — Important disclaimers regarding the use of our platform and device.">
+    <title>SECURENCE — Disclaimer</title>
+
+    <!-- Gate Guard -->
+    <script src="gate-guard.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="legal.css">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-ring">
+            <div class="loader-ring-inner"></div>
+        </div>
+        <p class="loader-text">Initializing SECURENCE</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar" id="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <nav class="page-nav" id="page-nav">
+        <div class="page-nav-container">
+            <a href="index.html" class="page-back-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#d946ef" />
+                                <stop offset="50%" stop-color="#a855f7" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                            stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg></span>
+                <span class="logo-text">SECURENCE</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="legal-hero">
+        <div class="legal-hero-bg">
+            <div class="legal-hero-glow legal-hero-glow-1"></div>
+            <div class="legal-hero-glow legal-hero-glow-2"></div>
+            <div class="legal-hero-glow legal-hero-glow-3"></div>
+        </div>
+        <div class="legal-hero-content" data-anim="fade-up">
+            <div class="legal-hero-badge">
+                <span class="badge-dot"></span>
+                LEGAL
+            </div>
+            <h1 class="legal-hero-title">
+                <span class="text-gradient">Disclaimer</span>
+            </h1>
+            <p class="legal-hero-subtitle">
+                Important notices regarding the limitations and responsibilities associated with the SECURENCE project
+                and platform.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="legal-content-section">
+        <div class="legal-container">
+            <div class="legal-cards-grid">
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">01</div>
+                    <h3>General Disclaimer</h3>
+                    <p>SECURENCE is an independent safety technology project currently in a prototype and development
+                        stage. All information, content, visualizations, simulations, and descriptions presented on this
+                        platform are provided for informational, educational, and conceptual purposes only. The platform
+                        is intended to communicate the vision, design approach, and potential capabilities of the system
+                        and does not represent a finalized, commercially available, or certified product. Users should
+                        understand that the project is still evolving, and all presented materials reflect ongoing
+                        development rather than a completed solution.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">02</div>
+                    <h3>No Guarantee of Safety</h3>
+                    <p>SECURENCE is designed with the intention of enhancing personal safety awareness and assisting in
+                        emergency response situations; however, it does not guarantee protection from harm, prevention
+                        of incidents, or successful outcomes in all scenarios. Any statements related to safety,
+                        response time, effectiveness, or reliability represent intended goals or conceptual expectations
+                        rather than assured real-world performance. Actual outcomes may vary significantly depending on
+                        environmental conditions, user behavior, technical limitations, and unforeseen circumstances.
+                    </p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">03</div>
+                    <h3>Not a Replacement for Emergency Services</h3>
+                    <p>Right now SECURENCE is not a substitute for law enforcement agencies, emergency responders,
+                        medical services, or professional security systems. The platform and its described features are
+                        intended to function as supportive tools and should not be relied upon as the sole means of
+                        protection. Users are expected to seek appropriate assistance from official emergency services
+                        when required and to follow established safety practices in real-world situations.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">04</div>
+                    <h3>User Responsibility</h3>
+                    <p>Users are solely responsible for how they interpret and use the information presented on this
+                        platform. Any decisions, actions, or reliance based on the content of the website are made at
+                        the user’s own discretion and risk. Users must ensure that any use of safety-related concepts,
+                        tools, or future implementations complies with applicable laws and ethical standards. Misuse,
+                        improper handling, or over-reliance on the system is the responsibility of the user and not of
+                        SECURENCE.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">05</div>
+                    <h3>Data & Digital Interaction Disclaimer</h3>
+                    <p>Any data submitted through the platform is processed based on current system design and may be
+                        subject to limitations, delays, or technical inconsistencies. SECURENCE does not guarantee
+                        real-time processing, storage accuracy, or uninterrupted data transmission. Users are advised
+                        not to rely on the platform for critical or emergency-dependent data communication.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">06</div>
+                    <h3>Technical Limitations</h3>
+                    <p>The functionality of systems described within SECURENCE may depend on multiple external and
+                        internal factors, including network connectivity, GPS accuracy, hardware condition, battery
+                        availability, environmental interference, and system integration. As a result, there may be
+                        delays, interruptions, inaccuracies, or failures in performance. The project does not guarantee
+                        continuous, uninterrupted, or error-free operation of any described feature. Our team working
+                        hard to get best output in near future.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">07</div>
+                    <h3>No Liability</h3>
+                    <p>To the fullest extent permitted under applicable laws of India, SECURENCE and its creator shall
+                        not be held liable for any direct, indirect, incidental, consequential, or special damages
+                        arising from the use of, or reliance on, the platform. This includes but is not limited to
+                        personal injury, emotional distress, data loss, service interruptions, or any outcomes related
+                        to the interpretation or use of the information presented. Use of the platform is entirely at
+                        the user’s own risk.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">08</div>
+                    <h3>Development & Experimental Status</h3>
+                    <p>SECURENCE is actively under development, and many of its features are in experimental,
+                        conceptual, or partially implemented stages. Elements such as AI-based threat detection, safe
+                        zone intelligence, real-time communication systems, and predictive safety models may not yet
+                        exist in a fully functional or deployable form. Demonstrations, visualizations, and simulations
+                        are used to represent intended functionality and should not be interpreted as real-world
+                        performance or availability.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">09</div>
+                    <h3>Forward-Looking Statements</h3>
+                    <p>The platform may contain forward-looking statements describing future features, development
+                        goals, or expected capabilities. These statements are speculative in nature and are subject to
+                        change based on technical feasibility, research outcomes, and development progress. SECURENCE
+                        does not guarantee that any future feature or functionality will be implemented as described or
+                        within any specific timeframe.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">10</div>
+                    <h3>Use of Demonstrations & Visual Content</h3>
+                    <p>All animations, simulations, scenario-based representations, and visual demonstrations are
+                        created to illustrate potential use cases and system behavior. These representations are not
+                        exact depictions of real-world operation and may simplify, enhance, or dramatize certain aspects
+                        for clarity and communication purposes. Users should not interpret such content as evidence of
+                        actual system performance.</p>
+                </div>
+
+                <div class="legal-card">
+                    <div class="legal-card-glow"></div>
+                    <div class="legal-card-number">11</div>
+                    <h3>Acknowledgment of Risk</h3>
+                    <p>By using this platform, users acknowledge that they understand the experimental nature of the
+                        project and the limitations associated with it. Users accept that the platform provides
+                        conceptual and developmental information and agree not to rely on it as a guaranteed safety
+                        solution. This acknowledgment reinforces that all use of the platform is voluntary and at the
+                        user’s own risk.</p>
+                </div>
+
+            </div>
+
+            <!-- Back to Top -->
+            <div class="legal-back-top" data-anim="fade-up">
+                <a href="#page-nav">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                    Back to Top
+                </a>
+            </div>
+            <!-- Download PDF -->
+            <div class="legal-download-wrap" data-anim="fade-up">
+                <a href="pdfs/3.pdf" class="legal-download-btn" id="legal-download-btn" download>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download as PDF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="legal-footer">
+        <div class="legal-footer-glow"></div>
+        <div class="section-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#d946ef" />
+                                        <stop offset="50%" stop-color="#a855f7" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13"
+                                    stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg></span>
+                        <span class="logo-text">SECURENCE</span>
+                    </div>
+                    <p class="footer-tagline">Your Safety. Reimagined.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Navigate</h4>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#how-it-works">How It Works</a>
+                        <a href="index.html#future">Future Vision</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="support.html">Support Us</a>
+                        <a href="index.html#team">Our Team</a>
+                        <a href="inside.html">Inside SECURENCE</a>
+                        <a href="demo.html">Live Demos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://www.instagram.com/securenceofficial/">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter / X</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="nda.html">NDA</a>
+                        <a href="founder-team-agreement.html">Founder & Team Agreement</a>
+                        <a href="product-notice.html">Product Page Notice</a>
+                        <a href="ip-protection.html">IP Protection Clause</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SECURENCE. All rights reserved. Built with purpose.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-and-conditions.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="legal.js"></script>
+</body>
+
+</html>

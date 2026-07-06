@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SECURENCE Visualization Hub — Experience future safety simulations powered by SECURENCE technology.">
+    <meta name="keywords" content="SECURENCE, safety simulation, SOS, safe zone, future technology">
+    <meta name="author" content="Team SECURENCE">
+    <title>SECURENCE — Visualization Hub</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hub.css">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!-- PRELOADER -->
+    <!-- ============================== -->
+    <div id="viz-preloader">
+        <div class="viz-loader-ring">
+            <div class="viz-loader-ring-inner"></div>
+        </div>
+        <p class="viz-loader-text">Initializing Visualization Hub</p>
+        <div class="viz-loader-progress">
+            <div class="viz-loader-progress-bar" id="viz-loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav class="viz-nav" id="viz-nav">
+        <div class="viz-nav-container">
+                <a href="../index.html#future" class="viz-nav-back" id="viz-nav-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+                <a href="../index.html" class="viz-nav-logo" id="viz-nav-logo">
+                <span class="viz-logo-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="securence-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d946ef"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><path d="M12 2L4 7V12.5C4 17.5 7.5 21 12 22.5C16.5 21 20 17.5 20 12.5V7L12 2Z" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="5,13 8,13 10,7 12,18 13.5,11 15.5,13 19,13" stroke="url(#securence-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+                <span class="viz-page-title">VISUALIZATION HUB</span>
+            </a>
+            </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================== -->
+    <section class="viz-hero" id="viz-hero">
+        <div class="viz-hero-bg">
+            <div class="viz-hero-grid"></div>
+            <div class="viz-hero-glow viz-hero-glow-1"></div>
+            <div class="viz-hero-glow viz-hero-glow-2"></div>
+            <div class="viz-hero-glow viz-hero-glow-3"></div>
+        </div>
+
+        <div class="viz-hero-content">
+            <div class="viz-hero-badge">
+                <span class="viz-badge-dot"></span>
+                FUTURE VISUALIZATION SYSTEM
+            </div>
+            <h1 class="viz-hero-title">
+                Visualize the <span class="text-gradient">Future of Safety</span>
+            </h1>
+            <p class="viz-hero-subtitle">
+                Experience real-world protection powered by SECURENCE. Step into immersive simulations that demonstrate
+                how our technology responds to threats in real-time.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- CARD GRID SECTION -->
+    <!-- ============================== -->
+    <section class="viz-cards-section" id="viz-cards">
+        <div class="viz-cards-container">
+            <div class="viz-cards-header">
+                <div class="section-label">SIMULATIONS</div>
+                <h2 class="section-title">Choose Your <span class="text-gradient">Experience</span></h2>
+                <p class="section-desc">Explore interactive scenarios that showcase SECURENCE's cutting-edge protection
+                    systems.</p>
+            </div>
+
+            <div class="viz-cards-grid">
+
+                <!-- Card 1: Smart SOS -->
+                <div class="viz-card active" id="card-sos">
+                    <div class="viz-card-glow"></div>
+                    <div class="viz-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <div class="viz-card-tag">SIMULATION</div>
+                    <h3>Smart SOS</h3>
+                    <p>Watch how SECURENCE monitors activity patterns and triggers emergency alerts when a potential
+                        risk
+                        is detected — automatically and instantly.</p>
+                    <a href="sos.html" class="viz-card-btn" id="btn-sos">
+                        <span>Experience</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 2: Safe Zone Breach -->
+                <div class="viz-card active" id="card-safezone">
+                    <div class="viz-card-glow"></div>
+                    <div class="viz-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v4l2 2" />
+                            <path d="M8 3.5A10.5 10.5 0 003.5 8" />
+                            <path d="M16 3.5A10.5 10.5 0 0120.5 8" />
+                        </svg>
+                    </div>
+                    <div class="viz-card-tag">SIMULATION</div>
+                    <h3>Safe Zone Breach</h3>
+                    <p>See what happens when a user exits their designated safe zone — real-time boundary detection,
+                        visual alerts, and emergency response activation.</p>
+                    <a href="safezone.html" class="viz-card-btn" id="btn-safezone">
+                        <span>Experience</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 3: Safety Pulse Map -->
+                <div class="viz-card active" id="card-pulse">
+                    <div class="viz-card-glow"></div>
+                    <div class="viz-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                        </svg>
+                    </div>
+                    <div class="viz-card-tag">SIMULATION</div>
+                    <h3>Safety Pulse Map</h3>
+                    <p>A live, interactive heatmap showing real-time safety conditions across different zones and
+                        neighborhoods — powered by community data.</p>
+                    <a href="map.html" class="viz-card-btn" id="btn-map">
+                        <span>Experience</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 4: AI Threat Detection -->
+                <div class="viz-card active" id="card-ai">
+                    <div class="viz-card-glow"></div>
+                    <div class="viz-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1.27A7 7 0 0112 22a7 7 0 01-7.73-3H3a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z" />
+                            <circle cx="9" cy="14" r="1" />
+                            <circle cx="15" cy="14" r="1" />
+                        </svg>
+                    </div>
+                    <div class="viz-card-tag">SIMULATION</div>
+                    <h3>AI Threat Detection</h3>
+                    <p>Watch AI algorithms analyze environmental patterns in real-time and predict potential threats
+                        before they happen — the future of predictive safety.</p>
+                    <a href="ai.html" class="viz-card-btn" id="btn-ai">
+                        <span>Experience</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- FOOTER CTA -->
+    <!-- ============================== -->
+    <div class="viz-footer-cta">
+        <p>All 4 simulations are live. Explore each experience.</p>
+        <p class="sub-text">Phase 3 enhancements coming soon.</p>
+    </div>
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer class="viz-page-footer">
+        <div class="viz-page-footer-glow"></div>
+        <p>&copy; 2026 <a href="../index.html">SECURENCE</a>. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/hub.js"></script>
+
+</body>
+
+</html>

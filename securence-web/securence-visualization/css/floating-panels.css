@@ -1,0 +1,259 @@
+/* ============================================
+   SECURENCE — Floating Panels System v3
+   Full-Width Collapse Bar + Drag from Anywhere
+   + Floating Status Box
+   ============================================ */
+
+/* ── Floating Panel Base ── */
+.fp-panel {
+    position: fixed !important;
+    z-index: 150 !important;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.fp-panel:active {
+    cursor: grabbing;
+}
+
+.fp-panel.fp-dragging {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.08) !important;
+    opacity: 0.92;
+    cursor: grabbing;
+    transition: none !important;
+    z-index: 200 !important;
+}
+
+/* ── Panel Body (content that collapses) ── */
+.fp-body {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin 0.4s ease;
+    max-height: 800px;
+    opacity: 1;
+}
+
+.fp-body.fp-collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    margin: 0 !important;
+    pointer-events: none;
+}
+
+/* ── Collapse Bar (Full Width — Bottom of Panel) ── */
+.fp-collapse-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 6px 0;
+    margin-top: 6px;
+    border-top: 1px solid rgba(168, 85, 247, 0.1);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    border-radius: 0 0 8px 8px;
+}
+
+.fp-collapse-bar:hover {
+    background: rgba(168, 85, 247, 0.06);
+}
+
+.fp-collapse-bar:active {
+    background: rgba(168, 85, 247, 0.12);
+}
+
+.fp-bar-label {
+    font-family: var(--font-display);
+    font-size: 0.38rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.fp-collapse-bar:hover .fp-bar-label {
+    opacity: 1;
+}
+
+.fp-bar-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.fp-collapse-bar:hover .fp-bar-chevron {
+    opacity: 1;
+    color: var(--neon-purple);
+}
+
+.fp-collapse-bar.fp-bar-collapsed {
+    margin-top: 4px;
+    border-top: none;
+    padding: 5px 0;
+}
+
+.fp-collapse-bar.fp-bar-collapsed .fp-bar-chevron {
+    transform: rotate(180deg);
+}
+
+/* ══════════════════════════════════════════════
+   FLOATING STATUS BOX — Compact, Draggable
+   No collapse button, just drag anywhere
+   ══════════════════════════════════════════════ */
+
+.fp-status-box {
+    position: fixed;
+    top: 70px;
+    right: 12px;
+    z-index: 180;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 10px;
+    background: rgba(8, 8, 24, 0.88);
+    border: 1px solid rgba(168, 85, 247, 0.12);
+    border-radius: 8px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    transition: box-shadow 0.3s ease;
+    max-width: 160px;
+}
+
+.fp-status-box:active {
+    cursor: grabbing;
+}
+
+.fp-status-box.fp-dragging {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.06) !important;
+    opacity: 0.92;
+    cursor: grabbing;
+    transition: none !important;
+    z-index: 210 !important;
+}
+
+.fp-status-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.fp-status-clock {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* ── Position Reset Button ── */
+.fp-reset-pos {
+    position: fixed;
+    bottom: 70px;
+    right: 12px;
+    z-index: 300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(8, 8, 24, 0.9);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: var(--text-muted);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.fp-reset-pos:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: var(--neon-purple);
+    color: var(--text-primary);
+}
+
+.fp-reset-pos.visible {
+    display: flex;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .fp-panel {
+        width: 150px !important;
+    }
+
+    .fp-collapse-bar {
+        padding: 8px 0;
+    }
+
+    .fp-bar-label {
+        font-size: 0.4rem;
+    }
+
+    .fp-status-box {
+        top: 60px;
+        right: 8px;
+        padding: 6px 8px;
+        gap: 3px;
+        max-width: 140px;
+    }
+
+    .fp-status-clock {
+        font-size: 0.48rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fp-panel {
+        width: 130px !important;
+    }
+
+    .fp-collapse-bar {
+        padding: 10px 0;
+    }
+
+    .fp-bar-label {
+        font-size: 0.42rem;
+    }
+
+    .fp-status-box {
+        top: 52px;
+        right: 6px;
+        padding: 5px 7px;
+        gap: 2px;
+        max-width: 125px;
+        border-radius: 6px;
+    }
+
+    .fp-status-clock {
+        font-size: 0.45rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .fp-status-box {
+        top: 48px;
+        right: 4px;
+        padding: 4px 6px;
+        max-width: 110px;
+    }
+}
